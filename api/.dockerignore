@@ -1,0 +1,7 @@
+#这里我们只保留assets，configs，main等文件其他的全部忽略
+*
+!assets
+!configs
+!main
+!build.sh
+!startup.sh

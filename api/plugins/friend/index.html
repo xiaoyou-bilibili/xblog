@@ -1,0 +1,279 @@
+<style>
+    #app {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    #app .links a{
+        text-decoration: none;
+    }
+
+    .links .userimg {
+        transition: all .3s;
+    }
+
+    .links .userimg:hover {
+        transform: rotate(45deg);
+    }
+
+    .el-input.el-input--prefix {
+        margin-top: 10px;
+    }
+
+    .post blockquote {
+        background-color: #fbf9f9;
+        padding: 5px 25px 5px 5px;
+        margin: 0 0 5px;
+        border-radius: 3px;
+        position: relative;
+        border: 1px solid #e3e8e8;
+    }
+
+    .post .blo {
+        position: absolute;
+        display: block;
+        right: 5px;
+        top: 5px;
+        color: #999;
+    }
+
+    .post .post-body .links ul li:hover {
+        background: rgba(230, 244, 250, .5);
+    }
+
+    .content a:hover {
+        border-bottom: 0 !important;
+    }
+
+    #content {
+        width: 772px;
+    }
+    .post {
+        position: relative;
+        padding: 40px;
+        background: #fff;
+        margin-bottom: 40px;
+        border-radius: 5px;
+    }
+
+    .post-header {
+        margin-bottom: 20px;
+    }
+
+    .posts-expand .post-title, .posts-expand .post-title-link {
+        color: #444;
+        font-size: 25px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .posts-expand .post-title-description {
+        text-align: center;
+        color: #999999;
+    }
+
+    @media (min-width: 992px) {
+        .posts-expand .post-body {
+            text-align: justify;
+        }
+    }
+
+    .post-body {
+        font-family: "PingFang SC", "Microsoft YaHei", Lato, sans-serif;
+    }
+
+    .post .post-body .links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .post .post-body .links ul li {
+        float: left;
+        width: 50%;
+        position: relative;
+        transition: all .3s ease-out;
+        border-radius: 5px;
+        list-style: none;
+    }
+
+    .post .post-body .links ul li a {
+        display: block;
+        padding: 0 10px 0 90px;
+        height: 90px;
+        color: #555;
+    }
+
+    .post .post-body .links ul li a img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        cursor: pointer;
+        margin: 0;
+        border: 0;
+    }
+
+    .post .post-body .links ul li a h4 {
+        padding-top: 20px;
+        font-size: 16px;
+    }
+
+    .post .post-body .links ul li a h4, .post .post-body .links ul li a p {
+        cursor: pointer;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .post .post-body .links ul li a p {
+        margin: 10px 0;
+        line-height: 24px;
+    }
+</style>
+<div id="app">
+    <div id="content" class="content">
+        <div id="posts" class="post posts-expand">
+            <div class="post-block page">
+                <header class="post-header">
+                    <h1 class="post-title">
+                        小伙伴们
+                    </h1>
+                    <p class="post-title-description">
+                        小伙伴的链接，每次随机刷新(*^▽^*)
+                    </p>
+                </header>
+                <div class="post-body">
+                    <el-divider> </el-divider>
+                    <div class="links">
+                        <ul>
+                            <li v-for="(item,index) in friends" :key="index">
+                                <a :href="item.url" :title="item.url" target="_blank">
+                                    <img class="userimg" alt :src="item.avatar">
+                                    <h4>${ item.name }</h4>
+                                    <p>${ item.dec }</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <el-divider> </el-divider>
+                    <blockquote>
+<!--                        <font-awesome-icon class="blo" icon="info-circle"/>-->
+<!--                        <p>-->
+<!--                            本站信息<br>-->
+<!--                            名称:${ settingFriend.name }<br>-->
+<!--                            描述:${ settingFriend.dec }<br>-->
+<!--                            网址:${ settingFriend.link }<br>-->
+<!--                            头像:${ settingFriend.avatar }<br>-->
+<!--                        </p>-->
+                        <p>
+                            友链申请要求<br>
+                            1.申请时请先加上本站的连接(〃'▽'〃)<br>
+                            2.原创博客，非采集站，全站 HTTPS 优先<br>
+                            * 图标仅支持 png / jpg /gif 等格式，请勿提交 ico 或 分辨率小于 100x100 的图标<br>
+                        </p>
+                    </blockquote>
+                    <el-button type="success" icon="el-icon-edit-outline" @click="centerDialogVisible = true">
+                        点击申请
+                    </el-button>
+                    <el-dialog
+                            title="友链申请"
+                            :close-on-click-modal="false"
+                            :visible.sync="centerDialogVisible"
+                            width="30%"
+                            center
+                    >
+                        <span>
+                          <el-form ref="friend" :model="friend" :rules="rules">
+                            <el-form-item prop="name">
+                              <el-input v-model="friend.name" placeholder="名字">
+
+                              </el-input>
+                            </el-form-item>
+                            <el-form-item prop="site">
+                              <el-input v-model="friend.site" placeholder="网站地址">
+
+                              </el-input>
+                            </el-form-item>
+                            <el-form-item>
+                              <el-input v-model="friend.dec" placeholder="个人介绍">
+
+                              </el-input>
+                            </el-form-item>
+                            <el-form-item>
+                              <el-input v-model="friend.avatar" placeholder="头像链接">
+
+                              </el-input>
+                            </el-form-item>
+                            <el-form-item prop="email">
+                              <el-input v-model="friend.email" placeholder="邮箱(填加友链后系统会自动提醒)">
+
+                              </el-input>
+                            </el-form-item>
+                          </el-form>
+                        </span>
+                        <span slot="footer" class="dialog-footer">
+                          <el-button @click="centerDialogVisible = false">取 消</el-button>
+                          <el-button type="primary" @click="submitFriend">提交申请</el-button>
+                        </span>
+                    </el-dialog>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        // 配置解析，避免和Go的模板渲染产生冲突
+        delimiters: ['${', '}'],
+        data: {
+            centerDialogVisible: false,
+            friends: [],
+            friend: {
+                name: '',
+                site: '',
+                dec: '',
+                avatar: '',
+                email: ''
+            },
+            rules: { // 验证界面
+                name: [{ required: true, message: '名字不能为空' }],
+                site: [{ required: true, message: '网站地址不能为空' }],
+                email: [{ validator: (rule, value, callback) => this.tools.checkEmail(value) ? callback() : callback(new Error('邮箱地址不正确')) }]
+            },
+            net: {}
+        },
+        mounted () {
+            this.net = new Net("http://127.0.0.1:2333/api/v3/")
+            this.getFriends()
+        },
+        methods:{
+            getFriends(){
+                this.net.request("plugins/friends","GET").then((data)=>{
+                    this.friends = data
+                })
+            },
+            // 提交友链申请请求
+            submitFriend () {
+                // 先判断验证是否通过
+                this.$refs.friend.validate((ok) => {
+                    if (ok) {
+                        // this.$store.dispatch('more/submitFriend', this.friend).then(() => {
+                        //     this.$alert('申请成功，请等待站长审核，审核通过后系统会自动发送邮件通知你!', '申请成功', {
+                        //         confirmButtonText: '确定'
+                        //     })
+                        //     // 清除申请内容
+                        //     this.friend = { name: '', site: '', dec: '', avatar: '', email: '' }
+                        // }).catch(msg => this.$message.error(msg))
+                        // this.centerDialogVisible = false
+                    }
+                })
+            }
+        }
+    });
+</script>

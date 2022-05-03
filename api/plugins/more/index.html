@@ -1,0 +1,43 @@
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css" rel="stylesheet">
+<div class="side-more">
+   {{range $index, $element := .functions}}
+        <span class="nav-link-item">
+              <a href="{{$element.link}}">
+                  <i style="color:{{$element.color}}" class="{{$element.icon}}"></i>
+                  {{$element.title}}
+              </a>
+        </span>
+    {{end}}
+</div>
+
+<style>
+    .side-more {
+        padding: 0;
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .side-more .nav-link-item {
+        align-items: center;
+        display: flex;
+        list-style: none;
+        padding: 5px 0 5px 0;
+        flex: 1;
+        width: 50%;
+        min-width: 50%;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .side-more .nav-link-item:hover {
+        background: #f4f4f4;
+        cursor: pointer;
+    }
+    .side-more .nav-link-item a{
+        color: #4c4c4c;
+        text-decoration: none;
+    }
+    .side-more .nav-link-item a:hover{
+        color: #618eba;
+    }
+</style>

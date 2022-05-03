@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重置密码</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">新密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="passwd" placeholder="新密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">请输入新密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="confirm" placeholder="重复密码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button onclick="reset()" class="btn btn-default">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function reset(){var passwd=$("#passwd").val();var passwd2=$("#confirm").val();if(passwd===passwd2){var data={token:getQueryVariable("token"),user_id:getQueryVariable("id"),password:passwd};$.ajax({url:'/api/v3/user/password/token',type:'PUT',data:JSON.stringify(data),contentType:"application/json",success:function(data){window.alert("你的密码已经重置!正在跳转到主页...");setTimeout(function(){window.location.replace(getQueryVariable("site"))},1000)},error:function(result){window.alert(result.responseJSON.message)}})}else{window.alert("两次密码不相同")}}function getQueryVariable(variable){var query=window.location.search.substring(1);var vars=query.split("&");for(var i=0;i<vars.length;i++){var pair=vars[i].split("=");if(pair[0]==variable){return pair[1]}}return(false)}
+</script>
+</body>
+</html>

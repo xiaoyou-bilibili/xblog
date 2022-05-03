@@ -1,0 +1,9 @@
+{
+  "name": "友人帐",
+  "unique": "friends",
+  "description": "可以显示友链信息，同时支持用户自助申请友链",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://xiaoyou66.com/",
+  "auth": ["router","tools","database","mail","widget"]
+}

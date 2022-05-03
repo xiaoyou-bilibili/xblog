@@ -1,0 +1,252 @@
+<style>
+    #app {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .post  blockquote {
+        background-color: #FFF2EE;
+        padding: 5px 25px 5px 5px;
+        margin: 15px 0 5px 212px;
+        border-radius: 3px;
+        position: relative;
+        border: 1px solid #e3e8e8;
+        height: 210px;
+    }
+    .post .blo{
+        position: absolute;
+        display: block;
+        right: 5px;
+        top: 5px;
+        color: #999;
+    }
+    .table-people{
+        position: absolute;
+        bottom: 0;
+    }
+
+    .donate-table{
+        margin-top: 55px;
+        padding-top: 50px;
+        position: relative;
+        margin-bottom: 50px;
+    }
+
+    .post-block{
+        padding: 0 18px;
+    }
+
+    /*赞助部分*/
+    .donate-table .table-img{
+        position: absolute;
+        width: 12em;
+        top: -28px;
+        z-index: 2;
+        left: 23%;
+    }
+
+    .donate-table .table-right-top{
+        position: absolute;
+        top: 11px;
+        z-index: 2;
+        width: 6em;
+        right: -11px;
+    }
+
+    .choose-title{
+        position: absolute;
+        bottom: 3%;
+        left: 19%;
+    }
+    .alipay{
+        background-image:url("{{.server}}/images/big.png")
+    }
+    .donate-box .choose-pay input:checked+label .alipay{
+        background-image:url("{{.server}}/images/bby.png")
+    }
+    .weixinpay{
+        background-image:url("{{.server}}/images/bik.png")
+    }
+    .donate-box .choose-pay input:checked+label .weixinpay{
+        background-image:url("{{.server}}/images/bbz.png")
+    }
+    .paychoose{
+        width: 17em;
+        left: 32%;
+        position: absolute;
+        height: 17em;
+        background-size: cover;
+    }
+
+    .donate-box .right-side{
+        position: absolute;
+        right: 0;
+    }
+    .choose-people{
+        width: 6em;
+        bottom: 0;
+        position: absolute;
+        right: 23%;
+    }
+    .donate-box .left-side{
+        position: absolute;
+        left: 0;
+    }
+    .donate-box{
+        position: relative;
+        height: 400px;
+        padding-bottom: 20px;
+    }
+
+    .donate-box .choose-pay{
+        display: flex;
+        right: 40%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .donate-box .choose-pay input {
+        display: none;
+    }
+
+    .donate-box .choose-pay input:checked+label {
+        border-color: #0092ee;
+        color: #0092ee;
+    }
+    .donate-box .pay-button {
+        margin: 10px 5px;
+        border: 1px solid #e6e6e6;
+        text-align: center;
+        line-height: 0;
+        cursor: pointer;
+    }
+    label {
+        display: inline-block;
+        max-width: 100%;
+        font-weight: 700;
+    }
+    .donate-box .pay-button div {
+        width: 6em;
+        height: 6em;
+    }
+
+    .post-header {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .posts-expand .post-title, .posts-expand .post-title-link {
+        color: #444;
+        font-size: 25px;
+        font-weight: 700;
+        text-align: center;
+    }
+    #content{
+        background: #fff;
+        width: 772px;
+        margin-bottom: 25px;
+    }
+</style>
+<div id="app">
+    <div id="content" class="content">
+        <div id="posts" class="post posts-expand">
+            <div class="post-block page">
+                <header class="post-header">
+                    <h1 class="post-title" itemprop="name headline">
+                        爱心箱
+                    </h1>
+                    <p class="post-title-description">
+                        博主写文章不容易，需要你的支持！(〃'▽'〃)
+                    </p>
+                </header>
+                <div class="post-body">
+                    <el-divider> </el-divider>
+                    <div class="donate-box">
+                        <img alt class="left-side" src="{{.server}}/images/c0a1.png" />
+                        <div class="paychoose" :style="'background-image: url('+settingDonate.wechat+');'" ></div>
+                        <img alt class="right-side" src="{{.server}}/images/c0a2.png" />
+                        <h3 class="choose-title">
+                            选择一种<br>支付方式:
+                        </h3>
+                        <div class="choose-pay text-center">
+                            <input id="alipay" type="radio" name="pay" checked="" />
+                            <div title="微信支付" for="alipay" class="pay-button" @click="donate(`alipay`)">
+                                <div class="weixinpay"></div>
+                            </div>
+                            <input id="wechatpay" name="pay" type="radio" />
+                            <div title="支付宝" for="wechatpay" class="pay-button" @click="donate(`wechat`)">
+                                <div class="alipay"></div>
+                            </div>
+                        </div>
+                        <img alt class="choose-people" src="{{.server}}/images/bs3.png" />
+                    </div>
+                    <el-divider>每笔赞助都会被永久记录下来，感谢你对我的支持</el-divider>
+                    <div class="donate-table">
+                        <img alt class="table-img" src="{{.server}}/images/d_u.png" />
+                        <el-table
+                                :data="donates"
+                                border
+                                style="width: 100%"
+                        >
+                            <el-table-column
+                                    prop="nickname"
+                                    label="昵称"
+                                    width="180"></el-table-column>
+                            <el-table-column
+                                    prop="donate"
+                                    label="赞助额"
+                                    width="180"></el-table-column>
+                            <el-table-column
+                                    prop="comment"
+                                    label="备注"></el-table-column>
+                        </el-table>
+                        <img alt class="table-people" src="{{.server}}/images/bbq.png" />
+                        <img alt class="table-right-top" src="{{.server}}/images/db4.9.png" />
+                        <el-divider> </el-divider>
+                        <blockquote>
+                            <p>
+                                注意：<br>
+                                1.要赞助一元以上才可以永久留名哦<br>
+                                2.大家在赞助的时候麻烦留下备注填上自己的昵称以及想对我说的话<br>
+                                3.更新可能不及时请谅解<br>
+                                4.如果有遗漏的可以私信我和我说明情况<br>
+                            </p>
+                            <p>
+                                注:<br>
+                                所有的赞助额都会用于维持服务器的费用以及软件开发
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const app = new Vue({
+    el: '#app',
+    data: {
+        donates:[],
+        settingDonate:{wechat:'',alipay:''},
+        net: {}
+    },
+    mounted () {
+        this.net = new Net("http://127.0.0.1:2333/api/v3/")
+        this.getDonate()
+    },
+    methods:{
+        getDonate(){
+            this.net.request("plugins/sponsors","GET").then((data)=>{
+                this.donates = data
+            })
+        },
+        donate (way) {
+            if (way === 'alipay') {
+                $('.paychoose').css('background-image', 'url(' + this.settingDonate.wechat + ')')
+            } else {
+                $('.paychoose').css('background-image', 'url(' + this.settingDonate.alipay + ')')
+            }
+        }
+    }
+});
+</script>

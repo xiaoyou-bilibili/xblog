@@ -1,0 +1,9 @@
+{
+  "name": "个人信息卡片",
+  "unique": "sideMyInfo",
+  "description": "在侧边栏显示自己的个人信息，同时显示自己的社交账号",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://xiaoyou66.com/",
+  "auth": ["widget","tools","database"]
+}

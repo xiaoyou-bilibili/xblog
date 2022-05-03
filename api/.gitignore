@@ -1,0 +1,6 @@
+.idea
+upload/images
+dist
+*.exe
+main
+*.zip

@@ -1,0 +1,9 @@
+{
+  "name": "公告栏",
+  "unique": "sideNotice",
+  "description": "侧边栏显示公告栏",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://xiaoyou66.com/",
+  "auth": ["widget","tools"]
+}

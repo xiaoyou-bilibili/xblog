@@ -1,0 +1,9 @@
+{
+  "name": "我的豆瓣",
+  "unique": "dou_ban",
+  "description": "可以显示自己的豆瓣电影，图书，音乐等数据",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://xiaoyou66.com/",
+  "auth": ["router","database","tools","widget","net","spider"]
+}

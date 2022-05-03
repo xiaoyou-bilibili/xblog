@@ -1,0 +1,133 @@
+<style>
+  .dou-ban{margin:10px 0;display:flex;justify-content:center}
+  .dou-ban .douban_head{padding:10px;background:rgba(253,253,253,.9);margin-bottom:5px;border-radius:10px}
+  .dou-ban .douban_head .douban_title{font-size:25px;font-weight:700;text-align:center;width:100%;color:#072}
+  .dou-ban .douban_head .douban_data{text-align:center;color:#669;font-size:20px}
+  .dou-ban .douban_head .douban_talk{font-size:12px;font-weight:500;text-align:end;width:100%;color:#909399}
+  .dou-ban #content{width:69%!important}
+  .dou-ban .list{display:flex;flex-wrap:wrap}
+  .dou-ban .item{margin:5px;border-radius:5px;padding:5px;background:#fafafa;cursor:pointer;display:flex;flex-direction:row;max-width:400px}
+  .dou-ban .item:hover{background:#e6effb}
+  .dou-ban .item:hover .comment{background:#e6effb}
+  .dou-ban .item .thumb{width:120px;border-radius:3px}
+  .dou-ban .info{margin-left:11px}
+  .dou-ban .info .star{display:flex;align-items:center}
+  .dou-ban .info .star .status{margin-right:10px}
+  .dou-ban .info .title{color:#494949;font-size:17px;font-weight:700}
+  .dou-ban .info .title,.info .pub{width:270px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dou-ban .info .pub{color:#666;font-size:13px;margin-top:5px;margin-bottom:5px}
+  .dou-ban .comment{color:#212121;font-size:12px;margin-top:5px;background:#f4f4f4;padding:5px 10px;height:100%;max-height:85px;max-width:250px;overflow-y:auto}
+</style>
+<div id="app" class="dou-ban">
+  <div id="content" class="content">
+    <div class="douban_head">
+      <div class="douban_title">
+        我的豆瓣
+      </div>
+      <div class="douban_data">
+        当前收藏:
+        <span style="color: #27a">{{ .movie }}</span>部电影
+        <span style="color:#614e3c">{{ .book }}</span>本图书
+        <span style="color:#555d53">{{ .music }}</span>首音乐
+        (最后更新时间:{{ .last }})
+      </div>
+      <div style="background-color:#DCDFE6;height:1px;margin:5px 0" ></div>
+      <div class="douban_talk">
+        {{ .talk }}
+      </div>
+    </div>
+    <el-tabs v-model="option" type="border-card" @tab-click="tabClick">
+      <el-tab-pane name="book">
+        <span slot="label">书籍</span>
+        <div class="list">
+          <a v-for="(item,index) in records.contents" :key="index" :href="item.url" target="_blank" rel="noopener" class="item">
+            <img class="thumb" alt :src="item.picture">
+            <div class="info">
+              <div class="title">${ item.name }</div>
+              <div class="pub">${ item.pub }</div>
+              <div class="my">
+                <div class="star">
+                  <el-tag class="status" type="success">${ item.status }</el-tag>
+                  <el-rate :value="item.star" disabled show-score text-color="#ff9900"></el-rate>
+                </div>
+                <div class="comment">${ item.comment }</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane name="movie">
+        <span slot="label">电影</span>
+        <div class="list">
+          <a v-for="(item,index) in records.contents" :key="index" :href="item.url" target="_blank" rel="noopener" class="item">
+            <img class="thumb" alt :src="item.picture">
+            <div class="info">
+              <div class="title">${ item.name }</div>
+              <div class="pub">${ item.pub }</div>
+              <div class="my">
+                <div class="star">
+                  <el-tag class="status" type="success">${ item.status }</el-tag>
+                  <el-rate :value="parseInt(item.star)" disabled show-score text-color="#ff9900" :score-template="item.star.toString()"></el-rate>
+                </div>
+                <div class="comment">${ item.comment }</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane name="music">
+        <span slot="label">音乐</span>
+        <div class="list">
+          <a v-for="(item,index) in records.contents" :key="index" target="_blank" rel="noopener" class="item" :href="item.url">
+            <img class="thumb" alt :src="item.picture">
+            <div class="info">
+              <div class="title">${ item.name }</div>
+              <div class="pub">${ item.pub }</div>
+              <div class="my">
+                <div class="star">
+                  <el-tag class="status" type="success">${ item.status }</el-tag>
+                  <el-rate :value="parseInt(item.star)" disabled show-score text-color="#ff9900" :score-template="item.star.toString()"></el-rate>
+                </div>
+                <div class="comment">${ item.comment }</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    delimiters: ['${', '}'],
+    data: {
+      option: 'book',
+      records: {
+        contents: []
+      }
+    },
+    mounted() {
+      xy.net.server = "/api/v3/";
+      this.getDouBanRecord(1);
+      xy.window.onScroll(() => this.records.current > this.records.total ? this.$message.warning("已经到达底部~") : this.getDouBanRecord(this.records.current + 1))
+    },
+    methods: {
+      getDouBanRecord(page) {
+        xy.net.request("plugins/dou_ban/"+this.option, "GET",{page}).then((data) => {
+          this.records.num = data.num;
+          this.records.total = data.total;
+          this.records.current = data.current;
+          this.records.contents.push.apply(this.records.contents, data.contents)
+        })
+      },
+      // 标签处理函数
+      tabClick (item) {
+        this.option = item.name
+        this.records = {contents: []}
+        this.getDouBanRecord(1)
+      }
+    }
+  });
+</script>

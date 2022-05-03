@@ -1,0 +1,9 @@
+{
+  "name": "更多功能",
+  "unique": "sideMore",
+  "description": "显示更多功能卡片，里面包括一些常用页面调整链接",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://xiaoyou66.com/",
+  "auth": ["widget","tools"]
+}

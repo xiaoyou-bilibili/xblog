@@ -1,0 +1,211 @@
+<!--我的追番-->
+<meta data-n-head="ssr" name="referrer" content="no-referrer">
+<style>
+    .animation #content{
+        width: 69%!important;
+        margin: 10px auto;
+    }
+    .animation .page-header {
+        background: rgba(253,253,253,0.7);
+        padding: 6px;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .animation .page-header h1 {
+        color: #63707e;
+        font-weight: 800;
+    }
+    .animation .page-header h1 small {
+        font-size: 18px;
+        color: #e42c64;
+    }
+
+    .animation .content a:hover {
+        border-bottom:0!important;
+    }
+
+    .animation .bilibili{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .animation .bgm-item {
+        background-color: rgba(255,255,255,0.7);
+        border-radius: 7px;
+        height: 414px;
+        display: block;
+        margin: 10px;
+        width: 300px;
+        position: relative;
+        box-shadow: 0 0 6px rgba(0,0,0,.5);
+        transition: .3s ease box-shadow;
+        border: none!important;
+        text-decoration: none!important;
+        overflow: hidden;
+    }
+
+    .animation .animation-item-thumb {
+        position: absolute;
+        opacity: 0.7;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        transition: all 0.5s;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .animation .bgm-item-info {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: .5rem;
+        overflow: hidden;
+    }
+    .animation .bgm-item-titlemain {
+        text-overflow: ellipsis;
+        color: #999999;
+        font-weight: 400;
+        font-size: 18px;
+        margin-bottom: 8px;
+        transition: all 1s;
+        white-space: nowrap;
+        padding-left: 5px;
+    }
+    .animation .bgm-item-info>* {
+        display: block;
+        max-width: 100%;
+    }
+    .animation .bgm-item-title {
+        text-overflow: ellipsis;
+        font-size: .86rem;
+        color: #248ea9;
+        font-weight: 700;
+    }
+    .animation .bgm-item-statusBar-container {
+        height: 20px;
+        width: 97%;
+        margin: .2rem auto;
+        padding: .2em;
+        background: rgba(0,0,0,.2);
+        position: relative;
+        z-index: 0;
+        color: #333;
+        font-size: 17px;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+    }
+    .animation .bgm-item-statusBar {
+        position: absolute;
+        height: 100%;
+        background: #ffb6c1;
+        left: 0;
+        top: 0;
+    }
+    .animation .move-view {
+        position: absolute;
+        display: none;
+        bottom: 0;
+    }
+    .animation .move-none{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .animation .bgm-item:hover .animation-item-thumb{
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    .animation .bgm-item:hover .move-view{
+        background: #fff;
+        display: block;
+        animation: myfirst 0.4s;
+        animation-timing-function: ease-in-out;
+        -webkit-animation: myfirst 0.4s; /* Safari 与 Chrome */
+        -webkit-animation-timing-function:ease-in-out;
+    }
+
+    @keyframes myfirst
+    {
+        0%   {bottom:-150px}
+        100% {bottom:0px}
+    }
+
+    .animation .bgm-item:hover .move-none{
+        display: none;
+    }
+
+    .animation .bgm-item:hover{
+        background-color: #fff;
+    }
+
+    .animation #content{
+        width: 772px;
+    }
+</style>
+<div id="app" class="animation more-page">
+    <div id="content" class="content">
+        <div class="page-header">
+            <h1>
+                我的追番
+                <small>当前已追${animations.num}部番，继续加油！</small>
+            </h1>
+        </div>
+        <div class="bilibili">
+            <a v-for="(item,index) in animations.contents" :key="index" class="bgm-item" :href="item.url" target="_blank">
+                <img class="animation-item-thumb" :src="item.cover" />
+                <div class="move-view bgm-item-info">
+                    <span class="bgm-item-title" v-html="item.dec"></span>
+                    <el-divider content-position="right">${ item.title }</el-divider>
+                    <div class="bgm-item-statusBar-container">
+                        <div class="bgm-item-statusBar" :style="'width:'+item.percent+'%'"></div>
+                    </div>${item.progress}/${item.total}
+                </div>
+                <div class="move-none">
+                    <span class="bgm-item-titlemain">${item.title}</span>
+                    <el-progress :show-text="false" :percentage="item.percent"></el-progress>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    const app = new Vue({
+        el: '#app',
+        // 配置解析，避免和Go的模板渲染产生冲突
+        delimiters: ['${', '}'],
+        data: {
+            animations: {
+                contents: [],
+                num: 0
+            },
+            net: {}
+        },
+        mounted () {
+            this.net = new Net("http://127.0.0.1:2333/api/v3/")
+            this.getAnimation(1)
+            // 绑定窗口滚动事件
+            let win = new WindowTool()
+            win.onScroll(()=>this.animations.current > this.animations.total?this.$message.warning("已经到达底部~"):this.getAnimation(this.animations.current + 1))
+        },
+        methods:{
+            getAnimation(page){
+                this.net.request("plugins/animations","GET",{page}).then((data)=>{
+                    this.animations.num = data.num
+                    this.animations.total = data.total
+                    this.animations.current = data.current
+                    // 直接用concat会报错，所以采用push的方法
+                    this.animations.contents.push.apply(this.animations.contents, data.contents)
+                })
+            }
+        }
+    });
+</script>
+
