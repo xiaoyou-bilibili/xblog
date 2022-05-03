@@ -1,0 +1,22 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  color: #4c4c4c;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #618eba;
+}
+
+/*评论表情*/
+.comment-content img {
+  width: auto !important;
+  height: auto !important;
+  max-height: 60px !important;
+  vertical-align: text-bottom !important;
+  display: inline !important;
+}

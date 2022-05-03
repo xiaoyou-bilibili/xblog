@@ -1,0 +1,6 @@
+#这里我们自动忽略git，node,等文件
+*.zip
+.idea
+.git
+.nuxt
+node_modules
