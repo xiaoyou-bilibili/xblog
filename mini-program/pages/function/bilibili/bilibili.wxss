@@ -1,0 +1,42 @@
+/* pages/functions/bilibili/bilibili.wxss */
+.animation-dec{
+  margin-bottom: -45rpx
+}
+.animation-button{
+  width: 90%;
+  margin-bottom:30rpx;
+}
+
+.animation-total{
+    width: auto;
+    text-align: center;
+    font-size: 25rpx;
+    margin: 0 10rpx;
+    padding: 10rpx;
+}
+.animation-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.animations{
+    display: flex;
+    flex-direction: column;
+    padding: 15rpx;
+    text-align: center;
+}
+.animations .img{
+    width: 200rpx;
+    height: 276rpx ;
+}
+.animations .title{
+    font-size: 20rpx;
+    width: 200rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.rate{
+    margin-top:5rpx;
+    width: 200rpx;
+}

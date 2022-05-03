@@ -1,0 +1,19 @@
+
+<view class="card-header" data-id="{{item.id}}" data-img="{{item.image}}" bindtap="bindPostDetail">
+  <image lazy-load="true" mode="aspectFill" src="{{item.image}}" class="header-extra-img" />
+  <view class="bg-white padding-xs grid col-1">
+    <view class="text-lg">{{item.title}}</view>
+    <view class="text-sm text-grey margin-top-xs">{{item.content}}</view>
+  </view>
+  <view class="flex justify-end align-center bg-white padding-xs text-gray text-sm">
+    <text class="cuIcon-time"></text>
+    <text>{{item.date}}</text>
+    <text class="cuIcon-attentionfill margin-left-xs" />
+    <text>{{view}}</text>
+    <text class="cuIcon-appreciatefill margin-left-xs" />
+    <text>{{good}}</text>
+    <text class="cuIcon-messagefill margin-left-xs" />
+    <text>{{comment}}</text>
+  </view>
+</view>
+

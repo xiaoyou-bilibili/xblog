@@ -1,0 +1,9 @@
+<!--pages/me/person/person.wxml-->
+<cu-custom color="#9c26b0" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">个人中心</view>
+</cu-custom>
+<view class="cu-form-group">
+		<view class="title">订阅文章</view>
+		<switch class="orange radius sm" checked bindchange="subscription"></switch>
+</view>

@@ -1,0 +1,38 @@
+/* pages/functions/price/price.wxss */
+/* 表格 */
+.my-donate{
+  border: 1px solid #ccc;
+}
+
+
+.choose .choose-img{
+  border: 1px solid #dedede;
+  border-radius: 25rpx;
+}
+.paycode{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.say{
+  padding: 20rpx;
+}
+.pay{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20rpx;
+}
+.pay .choose{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pay .choose image{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 5rpx;
+}

@@ -1,0 +1,48 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">首页</view>
+</cu-custom>
+<!-- 搜索框 -->
+<van-search value="{{ value }}" placeholder="请输入搜索关键词"
+  bind:change="onChange"
+  bind:search="onSearch"/>
+<!-- 搜索关键词 -->
+<view wx:if="{{search}}" class="search-tip">
+  <view 
+    class="search-key" 
+    wx:for="{{keyList}}" 
+    wx:key="index" 
+    data-id="{{item.id}}" 
+    bindtap="searchGo">
+    {{item.title}}
+  </view>
+</view>
+
+  <!-- 导航栏 -->
+<van-sticky offset-top="{{ statusBar }}">
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==0?'text-blue cur':''}}"  bindtap="tabChange" data-id="0">
+        文章
+      </view>
+      <view class="cu-item flex-sub {{index==1?'text-blue cur':''}}"  bindtap="tabChange" data-id="1">
+        日记
+      </view>
+    </view>
+  </scroll-view>
+</van-sticky>
+
+<scroll-view scroll-y="true" bindscrolltolower="scroll">
+  <view wx:if="{{index==='0'}}">
+    <view wx:for="{{posts}}" wx:key="index" class="cu-card"> 
+      <article item="{{item}}" bindtap="postDetail" data-id="{{item.id}}" data-img="{{item.image}}" />
+    </view>
+  </view>
+  <view wx:else>
+    <view wx:for="{{posts}}" wx:key="index"> 
+      <diary item="{{item}}" />
+    </view>
+  </view>
+</scroll-view>
+
+
+

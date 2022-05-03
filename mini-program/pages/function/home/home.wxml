@@ -1,0 +1,12 @@
+<cu-custom bgColor="bg-gradual-blue">
+	<view slot="content">其他功能</view>
+</cu-custom>
+<van-grid column-num="3">
+  <van-grid-item bindtap="goto" data-src="{{item.page}}" use-slot wx:for="{{functions}}" wx:key="index">
+		<image
+			class="function-image"
+      src="{{item.icon}}"
+    />
+		<text class="text-sm margin-top-sm">{{item.text}}</text>
+	</van-grid-item>
+</van-grid>

@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-progress": "@vant/weapp/progress/index",
+    "van-skeleton": "@vant/weapp/skeleton/index",
+    "van-transition": "@vant/weapp/transition/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-empty": "@vant/weapp/empty/index"
+  }
+}

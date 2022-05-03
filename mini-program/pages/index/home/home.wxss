@@ -1,0 +1,23 @@
+/* pages/index/home/home.wxss */
+.cu-card{
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  margin: 15rpx 10rpx;
+  border-radius: 6rpx;
+}
+
+/*搜索按钮的遮罩层*/
+.search-tip{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 999;
+}
+.search-key{
+  border-top:1px solid #c8c7cc;
+  padding: 25rpx;
+  text-align: center;
+  background: #ffffff;
+}
+
+

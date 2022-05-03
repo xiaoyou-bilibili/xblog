@@ -1,0 +1,111 @@
+<!--components/comment/comment.wxml-->
+<view class="cu-list menu menu-avatar comment solids-top">
+      <view wx:if="{{item.parent===0}}" class="uni-article__comment-box" wx:for="{{comments}}"  wx:for-item="item" wx:key="index">
+        <view class="article-meta">
+          <view class="article-header-image">
+              <image class="image" src="{{item.avatar}}" mode="widthFix"> </image>
+          </view>
+          <view class="article-header-content">
+              <view class="article-header-title">
+                  <text>{{item.nickname}}</text>
+                  <text class="replay-btn" data-id='{{item.id}}' data-name="{{item.nickname}}" bindtap='replay'>回复</text>
+              </view>
+              <view class="article-header-info">{{item.date}}</view>
+          </view>
+        </view>
+        <view class="comment-centent"><towxml nodes="{{item.content}}"/></view>
+
+        <!-- 子节点1 -->
+        <view 
+          wx:if="{{item2.parent===item.id}}" 
+          class="comment_child" 
+          wx:for="{{comments}}"  
+          wx:for-item="item2"
+          wx:key="index">
+          <view class="article-meta">
+            <view class="article-header-image">
+                <image class="image" src="{{item2.avatar}}" mode="widthFix"> </image>
+            </view>
+            <view class="article-header-content">
+                <view class="article-header-title">
+                    <text>{{item2.nickname}}</text>
+                    <text class="replay-btn" data-id='{{item2.id}}' data-name="{{item2.nickname}}" bindtap='replay'>回复</text>
+                </view>
+                <view class="article-header-info">{{item2.date}}</view>
+            </view>
+          </view>
+          <view class="comment-centent"><towxml nodes="{{item2.content}}"/></view>
+
+          <!-- 子节点2 -->
+          <view 
+            wx:if="{{item3.parent===item2.id}}" 
+            class="comment_child" 
+            wx:for="{{comments}}"  
+            wx:for-item="item3"
+            wx:key="index">
+            <view class="article-meta">
+              <view class="article-header-image">
+                  <image class="image" src="{{item3.avatar}}" mode="widthFix"> </image>
+              </view>
+              <view class="article-header-content">
+                  <view class="article-header-title">
+                      <text>{{item3.nickname}}</text>
+                      <text class="replay-btn" data-id='{{item3.id}}' data-name="{{item3.nickname}}" bindtap='replay'>回复</text>
+                  </view>
+                  <view class="article-header-info">{{item3.date}}</view>
+              </view>
+            </view>
+            <view class="comment-centent"><towxml nodes="{{item3.content}}"/></view>
+
+            <!-- 子节点3 -->
+            <view 
+              wx:if="{{item4.parent===item3.id}}" 
+              class="comment_child" 
+              wx:for="{{comments}}"  
+              wx:for-item="item4"
+              wx:key="index">
+              <view class="article-meta">
+                <view class="article-header-image">
+                    <image class="image" src="{{item4.avatar}}" mode="widthFix"> </image>
+                </view>
+                <view class="article-header-content">
+                    <view class="article-header-title">
+                        <text>{{item4.nickname}}</text>
+                        <text class="replay-btn" data-id='{{item4.id}}' data-name="{{item4.nickname}}" bindtap='replay'>回复</text>
+                    </view>
+                    <view class="article-header-info">{{item4.date}}</view>
+                </view>
+              </view>
+              <view class="comment-centent"><towxml nodes="{{item4.content}}"/></view>
+              <!-- 子节点4 -->
+              <view
+                wx:if="{{item5.parent===item4.id}}" 
+                class="comment_child" 
+                wx:for="{{comments}}" 
+                wx:for-item="item5"
+                wx:key="index">
+                <view class="article-meta">
+                  <view class="article-header-image">
+                      <image class="image" src="{{item5.avatar}}" mode="widthFix"> </image>
+                  </view>
+                  <view class="article-header-content">
+                      <view class="article-header-title">
+                          <text>{{item5.nickname}}</text>
+                      </view>
+                      <view class="article-header-info">{{item5.date}}</view>
+                  </view>
+                </view>
+                <view class="comment-centent"><towxml nodes="{{item5.content}}"/></view>
+              <!-- 子节点4 -->
+              </view>
+            <!-- 子节点3 -->
+            </view>
+          <!-- 子节点2 -->
+          </view>
+        <!--子节点 1-->
+        </view>
+      <!-- 父节点 -->
+      </view>
+      <view style="padding:50rpx"></view>
+</view>
+

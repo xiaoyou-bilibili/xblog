@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/home/home",
+    "pages/function/home/home",
+    "pages/function/bilibili/bilibili",
+    "pages/function/douban/douban",
+    "pages/function/friend/friend",
+    "pages/function/donate/donate",
+    "pages/me/collection/collection",
+    "pages/me/home/home",
+    "pages/me/advice/advice",
+    "pages/index/search/search",
+    "pages/index/post/post",
+    "pages/me/person/person"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/lib/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "color": "#959394",
+    "selectedColor": "#409EFF",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/home/home",
+        "iconPath": "/images/icon/index.png",
+        "selectedIconPath": "/images/icon/index-choose.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/function/home/home",
+        "iconPath": "/images/icon/function.png",
+        "selectedIconPath": "/images/icon/function-choose.png",
+        "text": "功能"
+      },
+      {
+        "pagePath": "pages/me/home/home",
+        "iconPath": "/images/icon/me.png",
+        "selectedIconPath": "/images/icon/me-choose.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

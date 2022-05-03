@@ -1,0 +1,121 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "appid": "wx144674b7cc62e08d",
+  "projectname": "xblog%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "友链",
+          "pathName": "pages/function/friend/friend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "赞助博主",
+          "pathName": "pages/function/donate/donate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "豆瓣",
+          "pathName": "pages/function/douban/douban",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "收藏",
+          "pathName": "pages/me/collection/collection",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "意见反馈",
+          "pathName": "pages/me/advice/advice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "文章",
+          "pathName": "pages/index/post/post",
+          "query": "scene=2311",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/me/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "功能",
+          "pathName": "pages/function/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人中心",
+          "pathName": "pages/me/person/person",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

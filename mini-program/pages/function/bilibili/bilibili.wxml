@@ -1,0 +1,50 @@
+<!--pages/functions/bilibili/bilibili.wxml-->
+<cu-custom color="#f25d8e" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">我的追番</view>
+</cu-custom>
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+
+<!-- 追番部分 -->
+<van-empty wx:if="{{!setting.animation}}" description="没有内容" />
+<view wx:else class="bg-white">
+  <view class="animation-total">当前已追<text style="color:#f25d8e">{{total}}</text>部番,继续加油!</view>
+  <van-divider />
+  <van-skeleton class="bg-white" row="30" loading="{{process}}">
+    <view class="animation-list">
+      <view class="animations"
+        wx:for="{{animations}}" 
+        wx:key="index" 
+        data-img="{{item.cover}}" 
+        data-title="{{item.title}}" 
+        data-dec="{{item.dec}}" 
+        data-url="{{item.url}}"
+        bindtap="showAnimation">
+        <image class="img" src="{{item.cover}}"/>
+        <van-progress show-pivot="{{false}}"  class="rate" color="#f25d8e" percentage="{{item.percent}}" />
+        <view class="title">{{item.title}}</view> 
+      </view>
+    </view>
+  </van-skeleton>
+</view>
+
+
+<!-- 显示番剧详细信息 -->
+<view class="cu-modal {{show?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('{{detail.img}}');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </view>
+    <view class="bg-white">
+      <view class="text text-pink text-sm padding text-grey animation-dec">{{detail.dec}}</view>
+      <van-divider dashed contentPosition="center">{{detail.title}}</van-divider>
+       <button class="cu-btn line-cyan line df animation-button" data-url="{{detail.url}}" bindtap="openAnimation">立即播放</button>
+    </view>
+  </view>
+</view>

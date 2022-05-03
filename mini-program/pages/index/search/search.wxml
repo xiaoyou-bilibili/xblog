@@ -1,0 +1,13 @@
+<!--pages/index/search/search.wxml-->
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
+  <view class="tab-head-bar" slot="backText">返回</view>
+  <view class="tab-head-bar" slot="content">{{key}}-搜索结果</view>
+</cu-custom>
+
+<scroll-view scroll-y="true" bindscrolltolower="scroll">
+  <view>
+    <view wx:for="{{posts}}" wx:key="index" class="cu-card"> 
+      <article item="{{item}}" bindtap="postDetail" data-id="{{item.id}}" data-img="{{item.image}}" />
+    </view>
+  </view>
+</scroll-view>

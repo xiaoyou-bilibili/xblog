@@ -1,0 +1,18 @@
+<!--pages/me/advice/advice.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">意见反馈</view>
+</cu-custom>
+<form catchsubmit="submitAdvice">
+	<view class="cu-form-group">
+		<view class="title">联系方式</view>
+		<input name="concat" placeholder="QQ号或者邮箱"></input>
+  </view>
+  <view class="cu-form-group align-start">
+		<view class="title">意见</view>
+		<textarea name="content" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="这里输入你的反馈建议"></textarea>
+  </view>
+  <view class="padding-xs flex flex-direction margin-left-xs margin-right-xs">
+    <button formType="submit" class="cu-btn bg-green lg">立即反馈</button>
+  </view>
+</form>

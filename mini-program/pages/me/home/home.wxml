@@ -1,0 +1,46 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg" style="background-image: url({{setting.head_image}});">
+    <button class="cu-btn line-white lg" wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
+    <block wx:else>
+      <view class="cu-avatar round lg margin-left" style="background-image:url({{userInfo.avatarUrl}});">
+      </view>
+      <view class="text-xl margin-top-xs">{{userInfo.nickName}}</view>
+    </block>
+    <image src="https://cdn.jsdelivr.net/gh/xiaoyou66/imgbed@1.0/xblog/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="cu-list menu  margin-top-sm margin-bottom-xl shadow-lg radius">
+    <!-- <view class="cu-item arrow">
+      <view class="content" bindtap="person">
+        <text class="cuIcon-peoplefill text-pink"></text>
+        <text class="text-grey">个人中心</text>
+      </view>
+    </view> -->
+    <view class="cu-item arrow">
+      <view class="content" bindtap="collect">
+        <text class="cuIcon-like text-red"></text>
+        <text class="text-grey">我的收藏</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="advice">
+        <text class="cuIcon-service text-grey"></text>
+        <text class="text-grey">意见反馈</text>
+      </view>
+    </view>
+    <view class="cu-item arrow">
+      <view class="content" bindtap="about">
+        <text class="cuIcon-creativefill text-blue"></text>
+        <text class="text-grey">关于博主</text>
+      </view>
+    </view>
+    <view class="cu-item arrow" bindtap="donate">
+      <view class="content">
+        <text class="cuIcon-pay text-yellow"></text>
+        <text class="text-grey">赞赏博主</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />

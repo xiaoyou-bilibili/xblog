@@ -1,0 +1,10 @@
+<!--components/diary/diary.wxml-->
+<!--加载日记css样式-->
+<view class="diary">
+  <view class="top"><view class="name">{{item.nickname}}</view><view class="time">{{item.date}}</view></view>
+  <view class="content">{{item.content}}</view>
+  <view class="bottom">
+    <view class="comment"><text class="cuIcon-messagefill" />{{item.comment}}条评论</view>
+    <view class="good"><text class="cuIcon-appreciatefill" />{{item.good}}人点赞</view>
+  </view>
+</view>

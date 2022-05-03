@@ -1,0 +1,44 @@
+<!--components/post-bottom/post-buttom.wxml-->
+<view class="comment-fixed">
+  <form catchsubmit="sendComment"  report-submit="true">
+    <view class="cu-bar input">
+      <view class="cu-avatar round" style="background-image:url({{avatar}});" bindtap='showMenuBox'></view>
+      <view class='action'>
+        <text class='cuIcon-roundaddfill {{isShow?"text-blue":"text-grey"}}' bindtap='showMenuBox'></text>
+      </view>
+      <input
+        class='solid-bottom'
+        maxlength="300"
+        cursor-spacing="10"
+        name="content"
+        placeholder="{{placeholder}}"
+        value="{{content}}"
+        focus="{{focus}}"
+        bindblur="onReplyBlur" />
+      <button class='cu-btn bg-blue shadow-blur' formType="submit">发送</button>
+    </view>
+  </form>
+  <view class="cu-list grid col-5 no-border menu-box {{isShow ? 'emoji-move-in' : 'emoji-move-out'}}">
+    <view class="cu-item item">
+      <view class='cuIcon-share text-green' style="margin-top:0;"></view>
+      <text>转发</text>
+      <button class="share-button" open-type="share"></button>
+    </view>
+    <view class="cu-item item" bindtap="showPoster">
+      <view class='cuIcon-pic text-gray' style="margin-top:0;"></view>
+      <text>海报</text>
+    </view>
+    <view class="cu-item item" bindtap='showQrcode'>
+      <view class='cuIcon-refund text-yellow' style="margin-top:0;"></view>
+      <text>赞赏</text>
+    </view>
+      <view class="cu-item item" bindtap='updateCollection' data-option='collect'>
+      <view class='{{status.collection?"cuIcon-likefill":"cuIcon-like"}} text-red' style="margin-top:0;"></view>
+      <text>{{status.collection?"已":""}}收藏</text>
+    </view>
+    <view class="cu-item item" bindtap='updateCollection' data-option="good">
+      <view class='{{status.good?"cuIcon-appreciatefill":"cuIcon-appreciate"}} text-blue' style="margin-top:0;"></view>
+      <text>{{status.good?"已":""}}点赞</text>
+    </view>
+  </view>
+</view>

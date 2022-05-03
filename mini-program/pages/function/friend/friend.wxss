@@ -1,0 +1,55 @@
+/* pages/functions/friend/friend.wxss */
+
+/*添加友链的按钮*/
+.btn-add{
+  bottom: 50rpx;
+  right:30rpx;
+  position: fixed;
+}
+
+.animation-total{
+    width: auto;
+    text-align: center;
+    font-size: 25rpx;
+    margin: 0 10rpx;
+    padding: 10rpx;
+    border-bottom: 1rpx solid #ccc;
+}
+.friend-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.friends{
+    width: 350rpx;
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+}
+.friends .avatar{
+    border-radius: 50%;
+    width: 80rpx;
+    height: 80rpx;
+    margin: 10rpx;
+}
+.friends .side{
+    width: 250rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.friends .side .name{
+    color: #555;
+    font-size: 30rpx;
+    font-weight: 700;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.friends .side .description{
+    color: #4c4c4c;
+    font-size: 20rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

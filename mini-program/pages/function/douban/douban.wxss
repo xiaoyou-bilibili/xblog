@@ -1,0 +1,47 @@
+/* pages/functions/douban/douban.wxss */
+.book-list{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.book{
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx;
+}
+.book .img{
+    width: 200rpx;
+    height: 290rpx;
+}
+.book .book-right{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rpx;
+}
+.book .book-right .book-name,.book-sub{
+    width: 500rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.book .book-right .book-name{
+    color: #494949;
+    font-size: 35rpx;
+    font-weight: 800;
+}
+.book .book-right .book-sub{
+    color:#666;
+    font-size: 25rpx;
+    margin: 10rpx 0;
+}
+.book .book-right .book-say{
+    width: 500rpx;
+    margin-top: 10rpx;
+    background: #e6effb;
+    padding: 10rpx;
+    border-radius: 5rpx;
+    height: 150rpx;
+    font-size: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

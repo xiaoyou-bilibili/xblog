@@ -1,0 +1,5 @@
+/* pages/function/home/home.wxss */
+.function-image{
+  width:70rpx;
+  height:70rpx
+}

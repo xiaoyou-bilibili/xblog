@@ -1,0 +1,31 @@
+<!--pages/functions/love/love.wxml-->
+<cu-custom color="#E54D42" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">我的收藏</view>
+</cu-custom>
+<view 
+  class="cu-card article no-card margin collect-card" 
+  data-id="{{item.id}}" 
+  data-img="{{item.image}}" 
+  bindtap="postDetail" 
+  bind 
+  wx:for="{{collections}}"
+  wx:key="index">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">{{item.title}}</view>
+    </view>
+    <view class="content">
+      <image src="{{item.image}}" mode="aspectFill"></image>
+      <view class="desc" >
+        <view style="width:370rpx" class="text-content">{{item.content}}</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.view}}
+          <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.good}}
+          <text class="cuIcon-messagefill margin-lr-xs"></text> {{item.comment}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 
+<view wx:if="{{collections.length===0}}" class="padding text-grry text-sm justify-center flex">你还没有收藏呢~</view>

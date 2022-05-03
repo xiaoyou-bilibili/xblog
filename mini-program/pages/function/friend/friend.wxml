@@ -1,0 +1,74 @@
+<!--pages/functions/friend/friend.wxml-->
+<cu-custom color="#01aaed" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">友人帐</view>
+</cu-custom>
+<van-dialog bind:cancel	="copyLink" id="van-dialog" />
+<van-empty wx:if="{{!setting.friend}}" description="没有内容" />
+<view wx:else class="bg-white">
+  <view class="animation-total">小伙伴们的链接,每次随机刷新!(*^▽^*)</view>
+  <van-skeleton row="30" loading="{{process}}">
+    <view class="friend-list">
+        <view class="friends" 
+          wx:for="{{friends}}" 
+          wx:key="index"
+          data-name="{{item.name}}"  
+          data-dec="{{item.dec}}" 
+          data-src="{{item.url}}" 
+          bindtap="showFriend">
+            <image class="avatar" src="{{item.avatar}}"/>
+            <view class="side">
+                <view class="name">{{item.name}}</view>
+                <view class="description">{{item.dec}}</view>
+            </view>
+        </view>
+    </view>
+  </van-skeleton>
+</view>
+
+<!-- 添加友链按钮 -->
+<button bindtap="addFriend" class="cu-btn icon bg-blue fixed lg btn-add animation-{{animation?'shake':''}}">
+  <text class="cuIcon-add"></text>
+</button>
+
+<!-- 友链申请界面 -->
+<view class="cu-modal {{addFriend?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">申请友链</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-blue"></text>
+      </view>
+    </view>
+    <form catchsubmit="submitFriend">
+      <view class="padding bg-white">
+        <view class="cu-form-group">
+          <text class="cuIcon-my"></text>
+          <input name="name" placeholder="名字"></input>
+        </view>
+        <view class="cu-form-group">
+          <text class="cuIcon-link"></text>
+          <input name="site" placeholder="网站地址"></input>
+        </view>
+        <view class="cu-form-group">
+          <text class="cuIcon-expressman"></text>
+          <input name="dec" placeholder="个人介绍"></input>
+        </view>
+        <view class="cu-form-group">
+          <text class="cuIcon-album"></text>
+          <input name="avatar" placeholder="头像链接"></input>
+        </view>
+        <view class="cu-form-group">
+          <text class="cuIcon-mail"></text>
+          <input name="email" placeholder="邮箱(通过后系统会发邮件)"></input>
+        </view>
+      </view>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-blue text-blue" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-blue margin-left" formType="submit">提交申请</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

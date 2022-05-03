@@ -1,0 +1,20 @@
+/* pages/index/post/post.wxss */
+@import '../../../style/post.wxss';
+
+/*顶部导航栏*/
+.tab-head-bar{
+  color:#ffffff;
+}
+
+/*文章部分内容*/
+towxml image{
+  border-radius: 5rpx;
+}
+.h2w__main{
+  padding-top: 0!important;
+}
+
+/*清除评论背景*/
+.h2w{
+  background: transparent!important;
+}

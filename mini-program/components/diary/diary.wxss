@@ -1,0 +1,46 @@
+/* components/diary/diary.wxss */
+.diary .bottom text{
+  margin-right: 15rpx;
+}
+.diary-list{
+    margin-bottom: 100rpx;
+}
+.diary{
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin: 15rpx;
+    border-radius: 10rpx;
+}
+.diary .top{
+    padding: 10rpx;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2rpx solid #e1e8ed;
+}
+.diary .bottom{
+    padding: 10rpx;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #e1e8ed;
+    color: #393d49;
+}
+.diary .top .name{
+    font-size: 30rpx;
+}
+.diary .top .time{
+    color:#98a6ad;
+    font-size: 20rpx;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+.diary .bottom .comment,.good{
+    width: 50%;
+    justify-content: center;
+    display: flex;
+}
+.diary .content{
+    padding: 20rpx;
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "van-divider": "@vant/weapp/divider/index",
+    "s-table": "../../../lib/table/index"
+  }
+}

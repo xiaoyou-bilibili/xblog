@@ -1,0 +1,44 @@
+<!--pages/functions/douban/douban.wxml-->
+<cu-custom color="#072" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">我的豆瓣</view>
+</cu-custom>
+
+<van-toast id="van-toast" />
+<van-dialog id="van-dialog" />
+
+<van-sticky offset-top="{{ statusBar }}">
+    <scroll-view scroll-x class="bg-white nav">
+        <view class="flex text-center">
+            <view data-option='book' bindtap="changeItem" class="cu-item flex-sub {{option==='book'?'text-green cur':''}}">书籍</view>
+            <view data-option='movie' bindtap="changeItem" class="cu-item flex-sub {{option==='movie'?'text-green cur':''}}">电影</view>
+            <view data-option='music' bindtap="changeItem" class="cu-item flex-sub {{option==='music'?'text-green cur':''}}">音乐</view>
+        </view>
+    </scroll-view>
+</van-sticky>
+
+<van-empty wx:if="{{!setting.dou_ban}}" description="没有内容" />
+<view wx:else class="book-list">
+    <van-skeleton class="bg-white" row="30" loading="{{process}}">
+        <view class="book" wx:for="{{records}}" wx:key="index" data-url="{{item.url}}" bindtap="itemClick">
+            <image class="img" src="{{item.picture}}"/>
+            <view class="book-right">
+                <view class="book-name">{{item.name}}</view>
+                <view class="book-sub">{{item.pub}}</view>
+                <view class="book-status flex">
+                    <view class='flex-sub cu-tag  bg-green text-white'>{{item.status}}</view>
+                    <view class="cu-capsule margin-left">
+                        <view class='cu-tag bg-yellow'>
+                            <text class='cuIcon-favor text-white'></text>
+                        </view>
+                        <view class="cu-tag line-yellow">
+                            {{item.star===''?'0':item.star}}
+                        </view>
+                    </view>
+                </view>
+                <view class="book-say">{{item.comment}}</view>
+            </view>
+        </view>
+    </van-skeleton>
+</view>
+  

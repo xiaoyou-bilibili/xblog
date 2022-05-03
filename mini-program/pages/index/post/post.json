@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "towxml": "/lib/towxml/towxml",
+    "post-bottom": "/components/post-bottom/post-bottom",
+    "comment": "/components/comment/comment",
+    "van-field": "@vant/weapp/field/index",
+    "van-button": "@vant/weapp/button/index",
+    "poster": "/lib/poster/index"
+  }
+}

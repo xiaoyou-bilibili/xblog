@@ -1,0 +1,19 @@
+<!--components/table/index.wxml-->
+ <scroll-view scroll-x="true" enable-flex='true' style="width:95%;"  class="table table-noborder">
+    <view class="tr thead s-class-header" style='width:{{theadWidth}}rpx;'>
+      <view wx:for="{{headers}}" class="td td-{{hasBorder}}border" style='width:{{tdWidth}}rpx;' >{{item.display}}</view>
+    </view>   
+    
+    <scroll-view scroll-y="true" style="height:{{height}}rpx;">
+    <block wx:for-item='i' wx:for="{{list}}">
+      <view class="tr s-class-row">
+        <view wx:for-item='j' wx:for="{{headers}}" class="td td-{{hasBorder}}border" style='width:{{tdWidth}}rpx;'>
+        {{i[j['text']]}}
+        </view>        
+      </view>
+    </block>
+</scroll-view>
+
+  <!-- </view> -->
+
+   </scroll-view>

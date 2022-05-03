@@ -1,0 +1,4 @@
+/* pages/functions/love/love.wxss */
+.collect-card{
+  border-radius: 10rpx
+}

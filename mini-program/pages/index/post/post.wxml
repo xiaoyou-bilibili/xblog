@@ -1,0 +1,78 @@
+<!--pages/index/post/post.wxml-->
+<cu-custom color="rgb(33, 150, 243,{{trans}})" isBack="{{true}}">
+	<view class="tab-head-bar" slot="backText">返回</view>
+	<view class="tab-head-bar" slot="content">{{post.title}}</view>
+</cu-custom>
+<!-- 文章详情 -->
+<view style="margin-top:-{{CustomBar}}px" class="bg-white">
+  <view class="cu-card dynamic no-card">
+    <view class="cu-item shadow">
+      <view class="bg-img only-img" style="background-image:url({{image}})"/>
+      <view class='text-gray text-sm text-center padding'>
+        <text class="cuIcon-timefill" />
+        {{post.date}}
+        <text class="cuIcon-attentionfill" />
+        {{post.view}}次浏览
+        <text class="cuIcon-appreciatefill" />
+        {{post.good}}人点赞
+        <text class="cuIcon-messagefill" />
+        {{post.comment}}条评论
+      </view>
+    </view>
+  </view>
+  <view>
+    <!-- 如果文章需要密码，显示密码输入框 -->
+    <van-field
+      wx:if="{{post.encrypt}}"
+      label="密码:"
+      clearable
+      placeholder="文章已加密，请输入访问密码"
+      border="{{ true }}"
+      use-button-slot
+      bind:change="onChange">
+      <van-button bindtap="getEncrypt" slot="button" size="small" type="info">解锁</van-button>
+    </van-field>
+    <!-- 下面这一段是显示网页内容的代码 -->
+    <towxml wx:else  nodes="{{content}}"/>  
+  </view>
+
+  <view class="margin-xs padding-sm text-blue" bindtap='readOriginal'>阅读原文</view>
+</view>
+
+<!-- 评论列表 -->
+<view wx:if="{{setting.comment}}" class="bg-white margin-top-xs">
+  <view class="cu-bar bg-white">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange '></text>
+      {{post.comment}}条评论
+    </view>
+  </view>
+  <!-- 文章评论-->
+  <comment postId="{{id}}" bindreplay="replay" />
+</view>
+
+
+<!-- 底部功能  -->
+<post-bottom wx:if="{{setting.post_bar}}" postId="{{id}}" replay="{{replayInfo}}" bindshowPoster="showPoster" />
+
+
+<!-- 生成海报组件 -->
+<poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+<!-- 展示海报弹窗 -->
+<view class="cu-modal {{isShowPosterModal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>海报分享</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='cuIcon-close text-red'></text>
+      </view>
+    </view>
+    <view>
+      <image style='height:800rpx;' mode="aspectFit" src="{{posterImageUrl}}" bindtap="posterImageClick"></image>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub text-green solid-left' bindtap='hideModal'>取消</view>
+      <view class='action margin-0 flex-sub  solid-left' bindtap='savePosterImage'>保存本地</view>
+    </view>
+  </view>
+</view>

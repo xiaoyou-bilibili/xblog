@@ -1,0 +1,40 @@
+<!--pages/functions/price/price.wxml-->
+<cu-custom color="#ffb800" isBack="{{true}}">
+  <view class="tab-head-bar text-white" slot="backText">返回</view>
+  <view class="tab-head-bar text-white" slot="content">赞助博主</view>
+</cu-custom>
+<view class="bg-white">
+  <view class="say">博主生活艰辛，需要你的支持(〃'▽'〃)!请随意点击下面两种支付方式中的一种进行赞助！</view>
+  <view class="pay">
+      <image src="/images/other/c0a1.png"/>
+      <view class="choose">
+          <image bindtap="changePay" data-choose="alipay" class="{{pay==='alipay'?'choose-img':''}}" src="/images/other/big.png"/>
+          <image bindtap="changePay" data-choose="weixin" class="{{pay==='weixin'?'choose-img':''}}" src="/images/other/bik.png"/>
+      </view>
+      <image src="/images/other/c0a2.png"/>
+  </view>
+  <button bindtap="saveQrcode" class="cu-btn block line-blue margin">
+    <text class="cuIcon-pulldown margin-right"></text>保存二维码
+  </button>
+  <van-divider contentPosition="center">每笔赞助额将永久记录，感谢你的支持!</van-divider>
+  <view class="paycode">
+      <image style="display:{{pay=='weixin'?'block':'none'}}" mode="aspectFit" src="{{payCode.wechat}}"/>
+      <image style="display:{{pay=='alipay'?'block':'none'}}" mode="aspectFit" src="{{payCode.alipay}}"/>
+  </view>
+  <van-divider contentPosition="center">所有赞助</van-divider>
+  <view class="flex padding-bottom" style="justify-content:center">
+    <scroll-view scroll-x="{{true}}" class="my-donate" style="width:95%;">
+      <view class="flex padding-sm">
+        <view class="basis-xs">姓名</view>
+        <view class="basis-xs">赞助额</view>
+        <view class="basis-lg">备注</view>
+      </view>
+      <view class="flex padding-sm" wx:for="{{row}}" wx:key="index">
+        <view class="basis-xs padding-sm">{{item.nickname}}</view>
+        <view class="basis-xs padding-sm">{{item.donate}}</view>
+        <view class="basis-lg padding-sm">{{item.comment}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+

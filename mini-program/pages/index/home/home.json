@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "article" :"/components/article/article",
+    "diary" :"/components/diary/diary",
+    "van-search": "@vant/weapp/search/index",
+    "van-sticky": "@vant/weapp/sticky/index"
+  }
+}

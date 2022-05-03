@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "decode": "/lib/towxml/decode",
+    "audio-player": "/lib/towxml/audio-player/audio-player",
+    "table": "/lib/towxml/table/table",
+    "todogroup": "/lib/towxml/todogroup/todogroup",
+    "img": "/lib/towxml/img/img"
+  }
+}

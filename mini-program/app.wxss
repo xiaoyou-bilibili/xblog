@@ -1,0 +1,6 @@
+/*使用colorui*/
+@import "lib/colorui/main.wxss";
+@import "lib/colorui/icon.wxss";
+
+/*引入动画效果 */
+@import "lib/colorui/animation.wxss";

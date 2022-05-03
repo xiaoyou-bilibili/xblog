@@ -1,0 +1,4 @@
+/* colorui/components/cu-custom.wxss */
+.cuIcon-back{
+  color: #ffffff;
+}
