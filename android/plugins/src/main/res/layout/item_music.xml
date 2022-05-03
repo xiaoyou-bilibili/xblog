@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="item"
+            type="com.xiaoyou.library.net.entity.response.MusicDetail" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/dp_5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_gravity="center_vertical"
+                android:id="@+id/musicCover"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"/>
+            <TextView
+                android:id="@+id/musicName"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_15"
+                android:textColor="@color/Black"
+                android:gravity="center"
+                android:text="@{item.name}"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:textColor="@color/text"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_gravity="center_vertical"
+                android:text="@{item.artist}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@color/text_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0_1"/>
+    </LinearLayout>
+</layout>

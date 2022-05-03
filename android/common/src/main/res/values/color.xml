@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--主题配色-->
+    <color name="theme_pink">#FA7298</color>
+    <color name="theme_pink_accent">#A32549</color>
+    <color name="theme_red">#F44236</color>
+    <color name="theme_red_accent">#C72C71</color>
+    <color name="theme_yellow">#FEC107</color>
+    <color name="theme_yellow_accent">#A57D02</color>
+    <color name="theme_green">#8BC24A</color>
+    <color name="theme_green_accent">#4F7E18</color>
+    <color name="theme_blue">#2196F3</color>
+    <color name="theme_blue_accent">#0B5E9E</color>
+    <color name="theme_purple">#9C28B1</color>
+    <color name="theme_purple_accent">#640D73</color>
+    <color name="theme_default">#009688</color>
+    <color name="theme_default_accent">#006257</color>
+    <color name="theme_dark">#393D49</color>
+    <color name="theme_dark_accent">#131A2F</color>
+</resources>

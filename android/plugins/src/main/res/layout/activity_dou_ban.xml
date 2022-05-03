@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tl="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+    <LinearLayout
+        android:id="@+id/douBanView"
+        tools:context=".douban.DouBanActivity"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/douBanTop"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            tl:tl_indicator_color="?colorPrimary"
+            tl:tl_textUnselectColor="?colorPrimary"
+            tl:tl_indicator_corner_radius="5dp"
+            tl:tl_indicator_margin_left="2dp"
+            tl:tl_indicator_margin_right="2dp"
+            tl:tl_indicator_style="BLOCK" />
+        <!-- 下拉刷新库-->
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/douBanList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    </data>
+    <LinearLayout
+        android:layout_marginTop="@dimen/dp_5"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:background="@color/theme_pink"
+                android:id="@+id/navigationColor"
+                android:layout_width="@dimen/dp_5"
+                android:layout_height="@dimen/dp_20"
+                android:orientation="horizontal" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_5"
+                android:id="@+id/navigationName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!--   下划线    -->
+        <LinearLayout
+            android:layout_marginBottom="@dimen/dp_10"
+            android:id="@+id/navigationLine"
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="@color/text_time"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:orientation="horizontal" />
+    </LinearLayout>
+</layout>

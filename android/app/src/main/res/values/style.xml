@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BlogFunctionCardView">
+        <item name="cardCornerRadius">5sp</item>
+        <item name="cardElevation">2sp</item>
+        <item name="android:layout_margin">5sp</item>
+        <item name="cardBackgroundColor">@color/function_gray</item>
+    </style>
+
+    <style name="IndexHeadButton">
+        <item name="android:layout_margin">5sp</item>
+    </style>
+
+    <style name="SignPageCardView">
+        <item name="android:layout_marginTop">20sp</item>
+        <item name="android:layout_marginStart">20sp</item>
+        <item name="android:layout_marginEnd">20sp</item>
+        <item name="android:layout_marginBottom">20sp</item>
+        <item name="cardCornerRadius">10sp</item>
+        <item name="cardElevation">5sp</item>
+        <item name="android:alpha">0.9</item>
+    </style>
+
+    <!--LinkDialogFragment顶部CardView样式-->
+    <style name="LinkDialogPageCardView">
+        <item name="android:layout_margin">5sp</item>
+        <item name="cardCornerRadius">10sp</item>
+        <item name="cardElevation">5sp</item>
+    </style>
+
+    <!--LinkDialogFragment顶部LinkTextView样式-->
+    <style name="LinkDialogPageTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5sp</item>
+    </style>
+
+    <!--    animation的动画效果-->
+    <style name="AnimationAnimal" parent="android:Animation">
+        <!--//进入时的动画-->
+        <item name="android:windowEnterAnimation">@anim/animation_enter</item>
+        <!--//退出时的动画-->
+        <item name="android:windowExitAnimation">@anim/animation_exit</item>
+    </style>
+
+    <!--自定义RatingBar Color-->
+    <style name="RatingBar_CustomColor" parent="@android:style/Widget.Holo.RatingBar.Indicator">
+        <!--Background Color-->
+        <item name="colorControlNormal">#D7D7D7</item>
+        <!--Progress Color-->
+        <item name="colorControlActivated">#F49800</item>
+    </style>
+
+    <!--PostActivity顶部ToolBar样式-->
+    <style name="PostActivityTitleText" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textSize">15sp</item>
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+</resources>

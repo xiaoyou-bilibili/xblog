@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--只有一个 ripple 节点-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#c2c2c2"
+    android:radius="20dp">
+</ripple>

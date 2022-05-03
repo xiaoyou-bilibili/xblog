@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.xiaoyou.library.net.entity.response.DouBanDetail" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/douBanCard"
+        android:layout_margin="@dimen/dp_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/dp_5"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <!--豆瓣图片-->
+            <com.facebook.drawee.view.SimpleDraweeView
+                fresco:roundedCornerRadius="5dp"
+                android:id="@+id/animationImg"
+                android:layout_width="@dimen/dp_120"
+                android:layout_height="@dimen/dp_160"/>
+
+            <TextView
+                android:layout_gravity="center"
+                android:text="@{item.name}"
+                android:lines="1"
+                android:textSize="@dimen/sp_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

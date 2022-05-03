@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.fragment.homepage.IndexFragment">
+            <!-- 顶部指示器 -->
+            <com.flyco.tablayout.CommonTabLayout
+                android:id="@+id/topChoose"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                tl:tl_textUnselectColor="?colorPrimary"
+                android:background="@color/white"
+                tl:tl_indicator_color="?colorPrimary"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                tl:tl_iconVisible="false"
+                tl:tl_indicator_margin_left="5dp"
+                tl:tl_indicator_margin_right="5dp"
+                tl:tl_indicator_style="BLOCK"
+                tl:tl_textsize="14sp" />
+            <!-- 文章界面-->
+            <com.xiaoyou.xblog.ui.components.NestedScrollableHost
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_2"
+                android:layout_weight="1"
+                tools:ignore="MissingClass">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/indexPage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.xiaoyou.xblog.ui.components.NestedScrollableHost>
+        </LinearLayout>
+    </FrameLayout>
+</layout>

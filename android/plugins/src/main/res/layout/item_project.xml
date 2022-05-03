@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.xiaoyou.library.net.entity.response.ProjectBottom" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/douBanCard"
+        android:layout_margin="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_gravity="center_vertical"
+            fresco:roundedCornerRadius="5dp"
+            android:id="@+id/projectCover"
+            android:layout_width="@dimen/dp_170"
+            android:layout_height="@dimen/dp_120" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/Black"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_18"
+                android:text="@{item.name}"
+                android:lines="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="@dimen/sp_12"
+                android:id="@+id/projectDec"
+                android:text="@{item.dec}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_90" />
+
+            <TextView
+                android:textColor="@color/text_time"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:gravity="end"
+                android:scrollbars="vertical"
+                android:text="@{item.time}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

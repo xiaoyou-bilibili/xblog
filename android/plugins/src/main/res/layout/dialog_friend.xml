@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.xiaoyou.library.net.entity.param.SubmitFriend" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/dialogContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_35"
+            android:background="@color/colorWhite"
+            android:id="@+id/dialogInfo"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--    内容介绍-->
+            <LinearLayout
+                android:gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/dialog_content_back"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_250">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    android:id="@+id/dialogContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <!--    底部按钮-->
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textColor="?colorPrimary"
+                    android:id="@+id/dialogCopy"
+                    android:layout_width="wrap_content"
+                    android:text="@string/function_friend_tip_copy"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:gravity="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="?colorPrimary"
+                        android:id="@+id/dialogCancel"
+                        android:text="@string/function_friend_tip_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="?colorPrimary"
+                        android:id="@+id/dialogStart"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/function_friend_tip_start"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_35"
+            android:visibility="gone"
+            android:background="@color/colorWhite"
+            android:id="@+id/dialogInput"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp_40"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:padding="7dp"
+                android:background="@drawable/edit_round"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--名字-->
+                <TextView
+                    android:fontFamily="@font/solid"
+                    android:text="@string/friend_img_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:text="@={item.name}"
+                    android:inputType="text"
+                    android:layout_marginStart="5dp"
+                    android:hint="@string/friend_text_name"
+                    android:textCursorDrawable="@null"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
+            </LinearLayout>
+            <!-- 网站地址-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:padding="7dp"
+                android:background="@drawable/edit_round"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/solid"
+                    android:text="@string/friend_img_url"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:text="@={item.site}"
+                    android:inputType="textUri"
+                    android:layout_marginStart="5dp"
+                    android:hint="@string/friend_text_url"
+                    android:textCursorDrawable="@null"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
+            </LinearLayout>
+            <!-- 个人介绍-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:padding="7dp"
+                android:background="@drawable/edit_round"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/solid"
+                    android:text="@string/friend_img_dec"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:text="@={item.dec}"
+                    android:inputType="text"
+                    android:layout_marginStart="5dp"
+                    android:hint="@string/friend_text_dec"
+                    android:textCursorDrawable="@null"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
+            </LinearLayout>
+            <!-- 头像地址-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:padding="7dp"
+                android:background="@drawable/edit_round"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/solid"
+                    android:text="@string/friend_img_avatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:text="@={item.avatar}"
+                    android:inputType="textUri"
+                    android:layout_marginStart="5dp"
+                    android:hint="@string/friend_text_avatar"
+                    android:textCursorDrawable="@null"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
+            </LinearLayout>
+            <!-- 邮箱-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:padding="7dp"
+                android:background="@drawable/edit_round"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="@font/solid"
+                    android:text="@string/friend_img_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:text="@={item.email}"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginStart="5dp"
+                    android:hint="@string/friend_text_email"
+                    android:textCursorDrawable="@null"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="" />
+            </LinearLayout>
+            <LinearLayout
+                android:padding="10dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:id="@+id/dialogBtnCancel"
+                    android:text="@string/function_friend_tip_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="ButtonStyle" />
+                <Button
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:textColor="@color/colorWhite"
+                    android:id="@+id/dialogBtnSubmit"
+                    android:text="@string/friend_btn_submit"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:ignore="ButtonStyle" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 个人头像 -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/userAvatar"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
+            android:src="@drawable/avatar" />
+    </FrameLayout>
+</layout>

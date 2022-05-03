@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaoyou.library.plugins">
+
+
+    <application>
+        <activity android:name=".animation.AnimationActivity" />
+        <activity android:name=".douban.DouBanActivity" />
+        <activity android:name=".friend.FriendActivity" />
+        <activity android:name=".sponsor.SponsorActivity" />
+        <activity android:name=".music.MusicActivity" />
+        <activity android:name=".doc.DocActivity" />
+        <activity android:name=".project.ProjectActivity" />
+        <activity android:name=".navigation.NavigationActivity" />
+
+        <service
+            android:name=".music.MusicService" />
+    </application>
+</manifest>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--搜索菜单-->
+    <item
+        android:visible="false"
+        android:id="@+id/action_search"
+        android:icon="@drawable/svg_search"
+        android:orderInCategory="80"
+        android:title="@string/search"
+        app:showAsAction="ifRoom" />
+</menu>

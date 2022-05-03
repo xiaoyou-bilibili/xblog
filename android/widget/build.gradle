@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compilesdk_version as int
+    buildToolsVersion build_version
+
+    defaultConfig {
+        minSdkVersion minsdk_version as int
+        targetSdkVersion targetsdk_version as int
+        versionCode version_code as int
+        versionName version_name
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "androidx.cardview:cardview:$cardview_version"
+
+    // 方便好用的界面状态管理  https://github.com/KingJA/LoadSir
+    api "com.kingja.loadsir:loadsir:$loadsir_version"
+    // 引入recycleview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    // 强大的主题引擎 https://github.com/jaredrummler/Cyanea
+    api 'com.jaredrummler:cyanea:1.0.2'
+    // 侧边栏圆形头像
+    api 'de.hdodenhof:circleimageview:3.1.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    // 图片加载库
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    // 透明状态栏 https://github.com/gyf-dev/ImmersionBar
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+}

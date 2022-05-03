@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compilesdk_version as int
+    buildToolsVersion build_version
+
+    defaultConfig {
+        minSdkVersion minsdk_version as int
+        targetSdkVersion targetsdk_version as int
+        versionCode version_code as int
+        versionName version_name
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+    //使用Kotlin实验特性
+    androidExtensions {
+        experimental = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':common')
+    // 顶部指示器 https://github.com/fanmingyi/FlycoTabLayout2
+    api 'com.fmy.tablayout:tablayout2:1.1.2'
+    // 安卓树形组件 https://github.com/zcolin/TreeView
+    implementation 'com.github.zcolin:TreeView:latest.release'
+    // 轮播图组件 https://github.com/youth5201314/banner
+    implementation 'com.youth.banner:banner:2.1.0'
+}

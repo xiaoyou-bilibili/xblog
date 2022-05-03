@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="info"
+            type="com.xiaoyou.library.net.entity.response.UserDetail" />
+    </data>
+
+    <RelativeLayout
+        tools:context=".ui.fragment.homepage.MeFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorPrimary">
+
+        <LinearLayout
+            android:id="@+id/function_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal|right"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dp_10"
+            tools:ignore="RtlHardcoded">
+
+            <ImageView
+                android:id="@+id/myScan"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_me_sweep"
+                android:contentDescription="@string/scan_code" />
+
+            <ImageView
+                android:id="@+id/myTheme"
+                android:layout_width="@dimen/dp_22"
+                android:layout_height="@dimen/dp_22"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_marginRight="@dimen/dp_10"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_me_palette"
+                android:contentDescription="@string/change_theme" />
+
+            <ImageView
+                android:id="@+id/myNight"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_me_moon"
+                android:contentDescription="@string/night_model" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/function_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/function_top"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingTop="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_10"
+            android:paddingBottom="@dimen/dp_5">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userAvatar"
+                android:layout_width="@dimen/dp_65"
+                android:layout_height="@dimen/dp_65"
+                android:src="@drawable/avatar" />
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@{info.nickname}"
+                android:id="@+id/M_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_toEndOf="@+id/userAvatar"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/clickLogin"
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_marginStart="@dimen/dp_12"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/white"
+                android:layout_toEndOf="@+id/userAvatar"
+                android:text="@string/click_login"
+                android:visibility="@{info.user_id==0?View.VISIBLE:View.GONE}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:visibility="@{info.user_id>0?View.VISIBLE:View.GONE}"
+                android:id="@+id/M_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/M_user_name"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toEndOf="@+id/userAvatar"
+                android:background="@drawable/file_background_follow_pink"
+                android:includeFontPadding="false"
+                android:paddingLeft="@dimen/dp_4"
+                android:paddingTop="@dimen/dp_2"
+                android:paddingRight="@dimen/dp_4"
+                android:paddingBottom="@dimen/dp_2"
+                android:text="@string/record_vip"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/M_B_currency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/M_member"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toEndOf="@+id/userAvatar"
+                android:textColor="@color/fddce3"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/M_coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/M_member"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_marginTop="@dimen/dp_3"
+                android:layout_toEndOf="@+id/M_B_currency"
+                android:textColor="@color/fddce3"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/personCenter"
+                android:visibility="@{info.user_id>0?View.VISIBLE:View.GONE}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/Right_more"
+                android:text="@string/person_center"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/Right_more"
+                android:layout_width="@dimen/dp_18"
+                android:layout_height="@dimen/dp_18"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/arrow_forward"
+                android:contentDescription="@string/back" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/function_data"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/function_user"
+            android:gravity="center"
+            android:orientation="horizontal">
+<!--            <com.xiaoyou.library.widget.component.TopTextView-->
+<!--                android:id="@+id/dynamic"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/dp_70"-->
+<!--                android:layout_weight="1"-->
+<!--                app:Top_Text="@string/diary"-->
+<!--                app:Bottom_Text="动态"-->
+<!--                app:Bottom_Text_Color="#DADADA"-->
+<!--                app:Bottom_Text_Size="4sp"-->
+<!--                app:Text_Spacing="20"-->
+<!--                app:Top_Text_Color="@color/white"-->
+<!--                app:Top_Text_Size="5sp" />-->
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/dp_1"-->
+<!--                android:layout_height="@dimen/dp_20"-->
+<!--                android:background="@color/gray_d8" />-->
+<!--            <com.xiaoyou.library.widget.component.TopTextView-->
+<!--                android:id="@+id/follow"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/dp_70"-->
+<!--                android:layout_weight="1"-->
+<!--                app:Bottom_Text="关注"-->
+<!--                app:Top_Text="@string/diary"-->
+<!--                app:Bottom_Text_Color="#DADADA"-->
+<!--                app:Bottom_Text_Size="4sp"-->
+<!--                app:Text_Spacing="20"-->
+<!--                app:Top_Text_Color="@color/white"-->
+<!--                app:Top_Text_Size="5sp" />-->
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/dp_1"-->
+<!--                android:layout_height="@dimen/dp_20"-->
+<!--                android:background="@color/gray_d8" />-->
+<!--            <com.xiaoyou.library.widget.component.TopTextView-->
+<!--                app:Top_Text="@string/diary"-->
+<!--                android:id="@+id/fans"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/dp_70"-->
+<!--                android:layout_weight="1"-->
+<!--                app:Bottom_Text="粉丝"-->
+<!--                app:Bottom_Text_Color="#DADADA"-->
+<!--                app:Bottom_Text_Size="4sp"-->
+<!--                app:Text_Spacing="20"-->
+<!--                app:Top_Text_Color="@color/white"-->
+<!--                app:Top_Text_Size="5sp" />-->
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/function_data"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:visibility="@{info.user_id>0?View.VISIBLE:View.GONE}"
+                    android:id="@+id/function_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/dp_10">
+
+                    <com.xiaoyou.library.widget.component.ImageTopView
+                        android:id="@+id/editInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:Image_Drawable="@drawable/svg_me_edit"
+                        app:Image_Text="编辑信息"
+                        app:Image_Text_Spacing="20"
+                        app:Text_Color="@color/Ash" />
+
+                    <com.xiaoyou.library.widget.component.ImageTopView
+                        android:id="@+id/myCollection"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:Image_Drawable="@drawable/svg_me_collection"
+                        app:Image_Text="我的收藏"
+                        app:Image_Text_Spacing="20"
+                        app:Text_Color="@color/Ash" />
+                    <com.xiaoyou.library.widget.component.ImageTopView
+                        android:id="@+id/loginOut"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        app:Image_Drawable="@drawable/svg_me_login_out"
+                        app:Image_Text="退出登录"
+                        app:Image_Text_Spacing="20"
+                        app:Text_Color="@color/Ash" />
+                </LinearLayout>
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/function_six"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/function_three"-->
+<!--                    android:layout_marginLeft="@dimen/dp_10"-->
+<!--                    android:layout_marginRight="@dimen/dp_10"-->
+<!--                    android:text="推荐服务"-->
+<!--                    android:textColor="@color/Black"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:textStyle="bold" />-->
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/function_Four"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/function_six"-->
+<!--                    android:gravity="center"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:padding="@dimen/dp_10">-->
+<!--                    <com.xiaoyou.library.widget.component.ImageTopView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="@dimen/dp_45"-->
+<!--                        android:layout_margin="@dimen/dp_10"-->
+<!--                        android:layout_weight="1"-->
+<!--                        app:Image_Drawable="@drawable/ic_me_offline_caching"-->
+<!--                        app:Image_Text="游戏中心"-->
+<!--                        app:Image_Text_Spacing="20"-->
+<!--                        app:Text_Color="@color/Ash" />-->
+<!--                </LinearLayout>-->
+
+                <TextView
+                    android:visibility="@{info.user_id>0?View.VISIBLE:View.GONE}"
+                    android:id="@+id/title_Three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/function_three"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginRight="@dimen/dp_10"
+                    android:text="@string/setting_center"
+                    android:textColor="@color/Black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_below="@+id/title_Three"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.xiaoyou.library.widget.component.MenuItemLayout
+                        android:id="@+id/setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ImageLeftMargin="50"
+                        app:TitleImg="@drawable/svg_me_setting"
+                        app:TitleSize="14"
+                        app:TitleText="软件设置"
+                        app:Underline="true" />
+
+                    <com.xiaoyou.library.widget.component.MenuItemLayout
+                        android:id="@+id/clearCache"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ImageLeftMargin="50"
+                        app:TitleImg="@drawable/svg_me_clear_cache"
+                        app:TitleSize="14"
+                        app:TitleText="清理缓存"
+                        app:Underline="true" />
+
+                    <com.xiaoyou.library.widget.component.MenuItemLayout
+                        android:id="@+id/checkUpdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ImageLeftMargin="50"
+                        app:TitleImg="@drawable/svg_me_update"
+                        app:TitleSize="14"
+                        app:TitleText="检查更新"
+                        app:Underline="true" />
+
+                    <com.xiaoyou.library.widget.component.MenuItemLayout
+                        android:id="@+id/support"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ImageLeftMargin="50"
+                        app:TitleImg="@drawable/svg_me_support"
+                        app:TitleSize="14"
+                        app:TitleText="技术支持"
+                        app:Underline="true" />
+
+                    <com.xiaoyou.library.widget.component.MenuItemLayout
+                        android:id="@+id/submitAdvice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ImageLeftMargin="50"
+                        app:TitleImg="@drawable/svg_me_submit_advice"
+                        app:TitleSize="14"
+                        app:TitleText="意见反馈"
+                        app:Underline="false" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+</layout>

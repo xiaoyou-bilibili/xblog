@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- StateLayout -->
+    <declare-styleable name="StateLayout">
+        <attr name="sl_loadingLayoutId" format="reference" />
+        <attr name="sl_emptyLayoutId" format="reference" />
+        <attr name="sl_errorLayoutId" format="reference" />
+        <attr name="sl_emptyText" format="string" />
+        <attr name="sl_useContentBgWhenLoading" format="boolean" />
+        <attr name="sl_enableLoadingShadow" format="boolean" />
+        <attr name="sl_enableTouchWhenLoading" format="boolean" />
+        <attr name="sl_defaultShowLoading" format="boolean" />
+        <attr name="sl_noEmptyAndError" format="boolean" />
+        <attr name="sl_animDuration" format="integer" />
+    </declare-styleable>
+
+
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_circle_background_color"/>
+    </declare-styleable>
+
+    <declare-styleable name="ImageTopView">
+        <attr name="Image_Text_Spacing" format="integer" />
+        <attr name="Text_Size" format="integer" />
+        <attr name="Image_Text" format="string" />
+        <attr name="Image_Drawable" format="reference" />
+        <attr name="Image_Size" format="integer" />
+        <attr name="Text_Color" format="reference|color" />
+        <attr name="Is_radius" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TopTextView">
+        <attr name="Top_Text" format="string" />
+        <attr name="Bottom_Text" format="string" />
+        <attr name="Text_Spacing" format="integer" />
+        <attr name="Top_Text_Color" format="color" />
+        <attr name="Bottom_Text_Color" format="color" />
+        <attr name="Top_Text_Size" format="dimension" />
+        <attr name="Bottom_Text_Size" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="MenuItemLayout">
+        <attr name="TitleText" format="string" />
+        <attr name="PromptText" format="string" />
+        <attr name="TitleImg" format="reference" />
+        <attr name="Background" format="reference" />
+        <attr name="isSwitch" format="boolean" />
+        <attr name="ImageLeftMargin" format="integer" />
+        <attr name="Underline" format="boolean" />
+        <attr name="TitleSize" format="integer" />
+        <attr name="ImageSize" format="integer" />
+    </declare-styleable>
+</resources>

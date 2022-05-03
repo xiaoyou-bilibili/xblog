@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.ChatActivity">
+        <!-- 下拉刷新库-->
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <com.stfalcon.chatkit.messages.MessagesList
+                android:id="@+id/messagesList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        <!-- 聊天窗口 -->
+        <LinearLayout
+            android:background="@color/white"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:src="@mipmap/avatar"
+                android:id="@+id/chatAvatar"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"/>
+<!--            <TextView-->
+<!--                android:fontFamily="@font/solid"-->
+<!--                android:gravity="center"-->
+<!--                android:foreground="@drawable/style_text_round"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginEnd="5dp"-->
+<!--                android:textSize="25sp"-->
+<!--                android:id="@+id/postBottomAdd"-->
+<!--                android:text="@string/post_bottom_ico_add"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"/>-->
+            <EditText
+                android:id="@+id/chatEdit"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:hint="@string/comment_say"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:autofillHints="@string/comment_say"
+                android:inputType="textMultiLine" />
+            <TextView
+                android:fontFamily="@font/regular"
+                android:id="@+id/chatSmile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:foreground="@drawable/style_text_round"
+                android:gravity="center"
+                android:text="@string/comment_smile"
+                android:textSize="25sp" />
+            <Button
+                android:backgroundTint="?colorPrimary"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/chatSend"
+                android:gravity="center"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:elevation="100dp"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="60dp"
+                android:text="@string/comment_send"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+        <!-- 表情 -->
+        <com.xiaoyou.xblog.ui.components.Face
+            android:visibility="gone"
+            android:id="@+id/faceContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

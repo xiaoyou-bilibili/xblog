@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    <!--centerx和centery的值取0-1；表示中间点的位置，中间点为0的，则渐变的中间色的 位置在最上面；中间点为0.5的，则渐变的中间色在屏幕中间；中间点为1 的，则中间点在屏幕下部。-->
+    <!--从左到右为0；然后逆时针旋转，90度为从下到上，270为从上到下。-->
+    <gradient
+        android:angle="270"
+        android:centerX="0.5"
+        android:centerY="0"
+        android:endColor="#62C1C3"
+        android:startColor="#438EB5"
+        android:type="linear" />
+    <corners android:radius="15sp"/>
+</shape>

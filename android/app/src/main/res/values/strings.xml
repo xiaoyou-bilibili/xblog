@@ -1,0 +1,187 @@
+<resources>
+    <string name="app_name">小游Blog</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- 底部功能栏  -->
+    <string name="home">主页</string>
+    <string name="tools">功能</string>
+    <string name="chat">聊天</string>
+    <string name="me">我的</string>
+    <string name="setting">设置</string>
+    <string name="article">文章</string>
+    <string name="diary">日记</string>
+
+    <string name="background">背景</string>
+    <string name="back">返回</string>
+    <!--  底部导航-->
+    <string name="navigation_index">主页</string>
+    <string name="navigation_function">功能</string>
+    <string name="navigation_chat">聊天</string>
+    <string name="navigation_me">我的</string>
+    <!--  图标按钮 -->
+    <string name="navigation_img_index">&#xf015;</string>
+    <string name="navigation_img_function">&#xf009;</string>
+    <string name="navigation_img_chat">&#xf0e0;</string>
+    <string name="navigation_img_me">&#xf007;</string>
+    <string name="head_img_search">&#xf002;</string>
+    <!-- 文章目录的图标-->
+    <string name="post_img_date">&#xf017;</string>
+    <string name="post_img_comment">&#xf27a;</string>
+    <string name="post_img_good">&#xf164;</string>
+    <string name="post_img_view">&#xf06e;</string>
+    <!-- 主页顶部说明-->
+    <string name="index_head_diary">日记</string>
+    <string name="index_head_post">文章</string>
+    <!--    搜索框-->
+    <string name="search_hint">随便输点什么吧!(✪ω✪)</string>
+    <string name="search_back">&#xf060;</string>
+    <!-- 表情-->
+    <string name="face_bilibili">bilibili</string>
+    <string name="face_tv">小电视</string>
+    <string name="face_zhihu">知乎表情</string>
+    <string name="face_tieba">贴吧泡泡</string>
+    <string name="face_text">颜文字</string>
+    <!--    评论区-->
+    <string name="comment_say">随便说点什么吧~</string>
+    <string name="comment_send">发送</string>
+    <string name="comment_smile">&#xf118;</string>
+    <!--  功能模块-->
+    <string name="function_friend_text">友人帐</string>
+    <string name="function_friend_img">&#xf1ae;</string>
+    <string name="function_animation_text">我的追番</string>
+    <string name="function_animation_img">&#xf6e2;</string>
+    <string name="function_love_img">&#xf4b9;</string>
+    <string name="function_love_text">赞助博主</string>
+    <string name="function_douBan_img">&#xf5da;</string>
+    <string name="function_douBan_text">我的豆瓣</string>
+    <string name="function_music_text">音乐盒</string>
+    <!--  个人中心说明  -->
+    <string name="me_change">切换主题</string>
+    <string name="img_change">&#xf53f;</string>
+    <string name="me_clear">清理缓存</string>
+    <string name="img_clear">&#xf51a;</string>
+    <string name="me_about">技术支持</string>
+    <string name="img_about">&#xf05a;</string>
+    <string name="me_setting">软件设置</string>
+    <string name="img_setting">&#xf013;</string>
+    <string name="me_update">检查更新</string>
+    <string name="img_update">&#xf2f1;</string>
+    <string name="me_submit">意见反馈</string>
+    <string name="img_submit">&#xf590;</string>
+    <!--个人信息页-->
+    <string name="me_me">编辑信息</string>
+    <string name="img_me">&#xf2c2;</string>
+    <string name="me_message">个人中心</string>
+    <string name="img_message">&#xf2bd;</string>
+    <string name="me_logout">退出登录</string>
+    <string name="img_logout">&#xf2f5;</string>
+    <string name="me_collect">我的收藏</string>
+    <string name="img_collect">&#xf005;</string>
+
+    <string name="img_sign_out">&#xf2f5;</string>
+    <string name="img_sign_in">&#xf2f6;</string>
+    <string name="me_click_login">点击登录</string>
+    <string name="me_user">用户名</string>
+    <string name="me_nickname">昵称</string>
+    <string name="me_password">密码</string>
+    <string name="me_login">登录</string>
+    <string name="me_forget">忘记密码</string>
+    <string name="me_register">注册账户</string>
+    <string name="me_deliver">|</string>
+    <string name="me_email">邮箱</string>
+    <string name="me_verify">验证码</string>
+    <string name="me_get_verify">获取验证码</string>
+    <string name="me_change_password">修改密码</string>
+    <string name="me_exit">登出</string>
+    <string name="me_github">github</string>
+    <string name="me_bilibili">bilibili</string>
+    <string name="me_steam">steam</string>
+    <string name="me_twitter">twitter</string>
+    <string name="me_understand">了解我们</string>
+    <string name="me_link">App链接</string>
+    <string name="me_link_background">链接背景</string>
+    <string name="me_donate">赞助额</string>
+    <string name="me_comment">备注</string>
+    <!--登录界面等图标-->
+    <string name="login_user">&#xf2bd;</string>
+    <string name="login_password">&#xf023;</string>
+    <string name="login_email">&#xf0e0;</string>
+    <string name="login_verify">&#xf1d8;</string>
+    <string name="login_no_eye">&#xf070;</string>
+    <string name="login_nickname">&#xf2c2;</string>
+
+    <!-- 个人中心 -->
+    <string name="me_info_avatar">头像</string>
+    <string name="me_info_nickname">昵称</string>
+    <string name="me_info_email">邮箱</string>
+    <string name="me_info_sign">签名</string>
+    <string name="me_info_back">&#xf105;</string>
+
+    <!--主题切换-->
+    <string name="theme_pink">少女粉</string>
+    <string name="theme_choose">选择你喜欢的颜色</string>
+    <string name="theme_red">姨妈红</string>
+    <string name="theme_yellow">咸蛋黄</string>
+    <string name="theme_green">早苗绿</string>
+    <string name="theme_blue">胖次蓝</string>
+    <string name="theme_purple">基佬紫</string>
+    <string name="theme_default">经典</string>
+    <string name="theme_dark">商务黑</string>
+    <string name="theme_ok">确定</string>
+    <string name="theme_cancel">取消</string>
+
+    <!--软件设置-->
+    <string name="setting_theme">主题相关</string>
+    <string name="setting_img">主题背景壁纸</string>
+    <string name="setting_img_open">开启背景壁纸</string>
+    <string name="setting_img_alpha">透明度/模糊度设置</string>
+    <string name="setting_img_alpha_text">这个是测试文字</string>
+    <string name="setting_img_alpha_light">背景图亮度</string>
+    <string name="setting_img_alpha_alpha">板块透明度</string>
+    <string name="setting_img_alpha_blue">顶部模糊度</string>
+    <string name="setting_me_nickname">设置我的昵称</string>
+    <string name="setting_me_email">设置我的邮箱</string>
+    <string name="setting_me_sign">设置我的个性签名</string>
+
+    <!-- 个人中心的一些文字 -->
+    <string name="person_setting_email">邮件订阅</string>
+    <string name="person_setting_email_dec">站长有文章发布后会第一时间通知你</string>
+
+    <!--点赞收藏分享-->
+    <string name="post_bottom_good">点赞</string>
+    <string name="post_bottom_good_true">已点赞</string>
+    <string name="post_bottom_ico_good">&#xf164;</string>
+    <string name="post_bottom_collect">收藏</string>
+    <string name="post_bottom_collect_true">已收藏</string>
+    <string name="post_bottom_ico_collect">&#xf005;</string>
+    <string name="post_bottom_share">分享</string>
+    <string name="post_bottom_ico_share">&#xf064;</string>
+    <string name="post_bottom_pay">赞赏</string>
+    <string name="post_bottom_ico_pay">&#xf379;</string>
+    <string name="post_bottom_ico_add">&#xf055;</string>
+
+    <!--我的豆瓣-->
+    <string name="function_douBan_book">书籍</string>
+    <string name="function_douBan_movie">电影</string>
+    <string name="function_douBan_music">音乐</string>
+    <string name="function_model_icon">功能类图标</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="record_vip">认证会员</string>
+    <string name="person_center">个人中心</string>
+    <string name="setting_center">设置中心</string>
+    <string name="click_login">点击登录</string>
+    <string name="forget_password">忘记密码</string>
+    <string name="change_avatar">修改头像</string>
+    <string name="scan_code">扫码</string>
+    <string name="change_theme">切换主题</string>
+    <string name="night_model">夜间模式</string>
+    <string name="function_doc_text">文档系统</string>
+    <string name="function_project_text">个人项目</string>
+    <string name="function_navigation_text">个人导航</string>
+
+</resources>

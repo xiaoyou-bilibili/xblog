@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="line">#bbc0c4</color>
+    <color name="no_img">#e2e2e2</color>
+    <color name="text">#757575</color>
+    <color name="text_time">#999</color>
+    <color name="head_text">#eeeeee</color>
+    <color name="element_line_color">#dcdfe6</color>
+
+    <!-- 功能区配色-->
+    <color name="function_red">#e54d42</color>
+    <color name="function_orange">#f37b1d</color>
+    <color name="function_yellow">#fbbd08</color>
+    <color name="function_olive">#8dc63f</color>
+    <color name="function_green">#39b54a</color>
+    <color name="function_cyan">#1cbbb4</color>
+    <color name="function_blue">#0081ff</color>
+    <color name="function_purple">#6739b6</color>
+    <color name="function_mauve">#9c26b0</color>
+    <color name="function_pink">#e03997</color>
+    <color name="function_brown">#a5673f</color>
+    <color name="function_grey">#8799a3</color>
+    <color name="function_gray">#f0f0f0</color>
+    <color name="function_black"> #333333</color>
+</resources>

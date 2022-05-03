@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MainActivity">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mainPage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <!-- 底部操作栏-->
+        <nl.joery.animatedbottombar.AnimatedBottomBar
+            app:abb_tabColor="?colorAccent"
+            android:id="@+id/bottomNavigation"
+            android:background="#FFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abb_selectedTabType="text"
+            app:abb_indicatorAppearance="round"
+            app:abb_indicatorMargin="16dp"
+            app:abb_indicatorHeight="4dp"
+            app:abb_tabs="@menu/activity_main_menu"
+            app:abb_selectedIndex="0" />
+    </LinearLayout>
+    <!--侧边栏内容-->
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/navigationView"-->
+<!--        android:layout_width="300sp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        app:headerLayout="@layout/activity_main_drawer_layout_header"-->
+<!--        app:menu="@menu/navigation_side_menu">-->
+<!--    </com.google.android.material.navigation.NavigationView>-->
+</androidx.drawerlayout.widget.DrawerLayout>

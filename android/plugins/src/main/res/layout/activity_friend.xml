@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            tools:context=".friend.FriendActivity"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_gravity="center"
+                android:text="@string/friend_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_margin="@dimen/dp_5"
+                android:background="@color/element_line_color"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_1"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/friendList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none" />
+        </LinearLayout>
+        <!--  悬浮按钮app:backgroundTint 边框颜色 -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:backgroundTint="?colorPrimary"
+            android:backgroundTint="?colorPrimary"
+            app:tint="@color/colorWhite"
+            android:id="@+id/addFriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/cyanea_fab_add"
+            android:contentDescription="@string/add_friend"
+            android:layout_margin="16dp" />
+    </FrameLayout>
+</layout>

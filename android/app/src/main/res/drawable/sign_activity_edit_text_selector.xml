@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--获取到焦点状态-->
+    <item android:drawable="@drawable/sign_activity_edit_text_input_bk" android:state_focused="true" />
+    <!--默认状态-->
+    <item android:drawable="@drawable/sign_activity_edit_text_bk"/>
+</selector>

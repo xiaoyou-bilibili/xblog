@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="friend_tip">小伙伴的链接，每次随机刷新(*^▽^*)</string>
+    <string name="animation_2">部番，继续加油！</string>
+    <string name="animation_1">当前已追</string>
+    <!-- 我的豆瓣-->
+    <string name="function_friend_say">小伙伴们的链接，每次随机刷新(*^▽^*)</string>
+    <string name="function_friend_tip_copy">复制本站信息</string>
+    <string name="function_friend_tip_start">开始申请</string>
+    <string name="function_friend_tip_cancel">取消</string>
+    <string name="friend_img_name">&#xf007;</string>
+    <string name="friend_text_name">名字</string>
+    <string name="friend_img_url">&#xf0c1;</string>
+    <string name="friend_text_url">网站地址</string>
+    <string name="friend_img_dec">&#xf044;</string>
+    <string name="friend_text_dec">个人介绍</string>
+    <string name="friend_img_avatar">&#xf03e;</string>
+    <string name="friend_text_avatar">头像链接</string>
+    <string name="friend_img_email">&#xf0e0;</string>
+    <string name="friend_text_email">邮箱</string>
+    <string name="friend_btn_submit">提交申请</string>
+
+    <!-- 赞助  -->
+    <string name="love_choose">选择一种支付方式:</string>
+    <string name="love_save">保存图片</string>
+    <string name="love_top">每笔赞助都会被永久记录下来，感谢你对我的支持</string>
+    <string name="love_22">22娘</string>
+    <string name="love_33">33娘</string>
+    <string name="clickPlay">点击播放</string>
+    <string name="add_friend">添加友链</string>
+    <string name="open_link">打开网址</string>
+    <string name="play">播放</string>
+    <string name="next">下一首</string>
+    <string name="previous">上一首</string>
+</resources>

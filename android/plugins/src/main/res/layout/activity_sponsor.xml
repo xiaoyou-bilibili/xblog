@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        tools:context=".sponsor.SponsorActivity"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--头部的赞助区-->
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@mipmap/love_left"
+                android:id="@+id/love_left_img"
+                android:layout_width="100dp"
+                android:layout_height="164dp"
+                android:contentDescription="@string/love_33" />
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_margin="10dp"
+                android:id="@+id/payImage"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
+            <ImageView
+                android:background="@mipmap/love_right"
+                android:id="@+id/love_right_img"
+                android:layout_width="100dp"
+                android:layout_height="164dp"
+                android:contentDescription="@string/love_22" />
+        </LinearLayout>
+        <!--切换支付方式-->
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_margin="10dp"
+                android:text="@string/love_choose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:background="@mipmap/alipay"
+                android:layout_margin="5dp"
+                android:id="@+id/loveALiPayChoose"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/love_choose" />
+            <ImageView
+                android:background="@mipmap/wechat"
+                android:layout_margin="5dp"
+                android:id="@+id/loveWeChatChoose"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/love_choose" />
+            <Button
+                android:textColor="@color/colorWhite"
+                android:backgroundTint="?colorPrimary"
+                android:layout_margin="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:id="@+id/loveSave"
+                android:text="@string/love_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <!--分割线-->
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:background="@color/element_line_color"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <!--说明-->
+        <TextView
+            android:gravity="center"
+            android:text="@string/love_top"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!--表格显示-->
+        <com.bin.david.form.core.SmartTable
+            android:id="@+id/table"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

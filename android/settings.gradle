@@ -1,0 +1,6 @@
+include ':plugins'
+rootProject.name='xblog'
+include ':app'
+include ':common'
+include ':net'
+include ':widget'

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    animation的动画效果-->
+    <style name="AnimationAnimal" parent="android:Animation">
+        <!--//进入时的动画-->
+        <item name="android:windowEnterAnimation">@anim/animation_enter</item>
+        <!--//退出时的动画-->
+        <item name="android:windowExitAnimation">@anim/animation_exit</item>
+    </style>
+</resources>
