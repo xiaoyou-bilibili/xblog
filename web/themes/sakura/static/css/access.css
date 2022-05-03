@@ -1,0 +1,38 @@
+/*登录注册界面css样式*/
+#footer{position:fixed;bottom:0;left:0;right:0;width:100%;height:30px;background-color:#464a4d;text-align:left;color:hsla(0,0%,100%,.5);font-size:12px}
+#footer .footer-item,#footer .footer-item a{display:inline-block;color:hsla(0,0%,100%,.5);margin-top:3px;margin-left: 10px}
+#footer a{text-decoration:none}
+.user-info a:hover{color:#409eff!important}
+.footer-item a:hover{color:#fff!important}
+#background-slideshow .slide{left:0;right:0;top:0;bottom:0;z-index:-1;position:fixed}
+#background-slideshow .wallpaper{width:100%;height:100%;background-size:cover;background-position-x:50%;background-position-y:0;opacity:1;-webkit-transition-property:opacity;transition-property:opacity;-webkit-transition-duration:1s;transition-duration:1s;-webkit-transition-timing-function:ease;transition-timing-function:ease}
+#background-slideshow .user-info a:link,#background-slideshow .user-info a:visited{text-decoration:none;color:#fff;background-color:transparent}
+#login-account-switch{margin-left:10px;float:left;font:14px PingFangSC-Semibold;color:#333;cursor:pointer;text-decoration:none;outline:0}
+/*登录注册按钮*/
+.signup-form{margin-top:20vh;margin-left:auto;margin-right:auto;text-align:center;background:#fff;width:363px;padding:10px 0;border-radius:4px}
+.signup-form .signup-form__logo-box{margin-bottom:40px}
+.signup-form .signup-form__logo{margin-bottom:6px;display:inline-block;width:180px;height:94px;background-repeat:no-repeat;background-size:cover}
+.signup-form__catchphrase{color:#757c80;font-size:12px;font-weight:700}
+/*登录界面*/
+.loginFrom{margin:0 20px}
+.login-bottom:hover{background:rgba(28,136,188,.5)}
+.login-bottom:active{background:rgba(228,199,200,.5)}
+.login-inputorbuttom{height:40px;width:100%;font-size:14px}
+.signup-form{margin-top:13vh!important}
+.slidingPictures{padding:0;width:300px;border-radius:2px}
+.clearfix{margin-top:16px;zoom:1;height:20px}
+.login-options .login-help{float:left;color:#9b9b9b;width:61px;margin-right:107px;font:14px PingFangSC-Semibold;cursor:pointer;text-decoration:none;outline:0}
+#login-account-switch,.login-options .register{margin-left:10px;float:left;font:14px PingFangSC-Semibold;color:#333;cursor:pointer;text-decoration:none;outline:0}
+a:hover{color:#00a1d6!important}
+/*注册界面*/
+#signup .clearfix{margin-top:16px;zoom:1;height:20px}
+#signup .login-options .login-help{float:left;color:#9b9b9b;width:61px;margin-right:107px;font:14px PingFangSC-Semibold;cursor:pointer;text-decoration:none;outline:0}
+#signup #login-account-switch,.login-options .register{margin-left:10px;float:left;font:14px PingFangSC-Semibold;color:#333;cursor:pointer;text-decoration:none;outline:0}
+#signup .verify .el-input{width:62%!important;float:left}
+#signup #code{width:97px;float:right}
+#signup .resignbutton{width:100%}
+#signup a:hover{color:#00a1d6!important}
+#signup .login-bottom{margin-top:15px}
+#signup .login-bottom:hover{background:rgba(28,136,188,.5)}
+#signup .login-bottom:active{background:rgba(228,199,200,.5)}
+#signup .login-inputorbuttom{height:40px;width:100%;font-size:14px}

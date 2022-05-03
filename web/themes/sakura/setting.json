@@ -1,0 +1,26 @@
+[
+  {
+    "title": "主页设置",
+    "items": [
+      {"key":"theme_sakura_theme_color","title":"主题颜色","type": "input","default":"#fe9600"},
+      {"key":"theme_sakura_show_avatar","title":"是否显示头像","type": "switch","default":false},
+      {"key":"theme_sakura_show_side","title":"是否显示侧边栏","type": "switch","default": true},
+      {"key":"theme_sakura_avatar","title":"头像","type": "upload","default":"https://cdn.jsdelivr.net/gh/xiaoyou66/imgbed@1.0/xblog/tTSY.jpg"},
+      {"key":"theme_sakura_sign","title":"手机端个性签名","type": "input","default":"二次元技术宅"},
+      {"key":"theme_sakura_show_live2d","title":"显示看板娘","type": "switch","default":true},
+      {"key":"theme_sakura_index_movie","title":"主页视频播放地址","type": "input","default":"https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.3/The%20Pet%20Girl%20of%20Sakurasou.mp4"},
+      {"key":"","title":"首页社交图标","type": "divider","default":""},
+      {"key":"theme_sakura_sns_bili","title":"B站","type": "input","default":"https://space.bilibili.com/343147393"},
+      {"key":"theme_sakura_sns_csdn","title":"CSDN","type": "input","default":"https://blog.csdn.net/xiaoyou625"},
+      {"key":"theme_sakura_sns_douban","title":"豆瓣","type": "input","default":"https://www.douban.com/people/199424307/"},
+      {"key":"theme_sakura_sns_github","title":"GitHub","type": "input","default":"https://github.com/xiaoyou66"},
+      {"key":"theme_sakura_sns_jianshu","title":"简书","type": "input","default":""},
+      {"key":"theme_sakura_sns_qq","title":"QQ","type": "input","default":""},
+      {"key":"theme_sakura_sns_qzone","title":"QQ空间","type": "input","default":""},
+      {"key":"theme_sakura_sns_telegram","title":"telegram","type": "input","default":"https://t.me/joinchat/R1egY8rUUKzRMngz"},
+      {"key":"theme_sakura_sns_twitter","title":"Twitter","type": "input","default":"https://twitter.com/xiaoyou625"},
+      {"key":"theme_sakura_sns_wangyiyun","title":"网易云","type": "input","default":""},
+      {"key":"theme_sakura_sns_zhihu","title":"知乎","type": "input","default":"https://www.zhihu.com/people/xiao-you-89-91"}
+    ]
+  }
+]

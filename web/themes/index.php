@@ -1,0 +1,1 @@
+<?php const THEME = "sakura";
