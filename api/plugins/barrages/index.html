@@ -1,0 +1,127 @@
+<style>
+  footer#colophon {display: none;}
+  /* 音乐播放 */
+  @-webkit-keyframes rotate{from{-webkit-transform:rotate(0)} to{-webkit-transform:rotate(360deg)} }
+  @-moz-keyframes rotate{from{-moz-transform:rotate(0)} to{-moz-transform:rotate(360deg)} }
+  @-ms-keyframes rotate{from{-ms-transform:rotate(0)} to{-ms-transform:rotate(360deg)} }
+  @-o-keyframes rotate{from{-o-transform:rotate(0)} to{-o-transform:rotate(360deg)} }
+  a.back-index{position:fixed;right:9px;cursor:pointer}
+  .back-index img{width:5em;transition:all .3s}
+  .back-index img:hover{transform:scale(1.3)}
+  img.music-player{animation:9.5s linear 0s normal none infinite rotate;-webkit-animation:9.5s linear 0s normal none infinite rotate;position:fixed;border-radius:50%;border:1px solid #9493ea;width:3em;cursor:pointer;left:5px}
+  img.danmu-angin{position:fixed;width:3em;left:75px;cursor:pointer;transition:all .2s}
+  img.danmu-angin:hover{transform:scale(1.2)}
+  /*弹幕*/
+  #app{width:100%;min-height:700px;display:flex;justify-content:center;margin-bottom:78px;margin-top:25px}
+  .barrage{cursor:pointer;position:fixed;bottom:70px;right:-500px;display:inline-block;width:500px;z-index:99}
+  .barrage_box{background-color:rgba(0,0,0,.5);padding-right:45px;height:40px;display:inline-block;border-radius:25px;transition:all .3s}
+  .barrage_box .portrait img{width:100%;height:100%}
+  .barrage_box div.p a{margin-right:2px;font-size:14px;color:#fff;line-height:40px;margin-left:18px}
+  .barrage_box div.p a:hover{text-decoration:underline}
+  .barrage a{text-decoration:none}
+  .barrage_box img{width:2em;border-radius:50%;float:left;margin-top:4px;margin-left:2px;margin-right:5px}
+  .barrage_box .z{margin-top:9px}
+  .barrage_box p{margin:0;padding:0;white-space:nowrap}
+  .danmu-first p{margin-top:-34px;margin-left:98px;color:#ffff;font-size:18px}
+  .danmu-first{background:rgba(0,0,0,.5);width:404px;height:38px;margin-top:50px}
+  .danmu-first img{width:8em;margin-top:-31px;margin-left:-41px}
+  .danmu-left{float:left;width:300px}
+  .danmu-right{float:right}
+  /*评论区*/
+  p.input-say{margin:20px 0 0 0;padding:0;font-size:13px;color:#999}
+  .comment-input{width:244px;float:right;margin-right:5px}
+  .danmu-panel{background:#fff;position:fixed;width:625px;padding:12px 14px;bottom:0;z-index:100;display:flex}
+  .up-face{border-radius:50%;margin-top:26px}
+  .comment-submit{width:86%;padding:4px 15px;font-size:14px;color:#fff;border-radius:4px;text-align:center;min-width:60px;vertical-align:top;cursor:pointer;background-color:#00a1d6;border:1px solid #00a1d6;-webkit-transition:.1s;transition:.1s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;outline:0;float:right;margin:10px 0}
+  .danmu-first img{width:8em;margin-top:-31px;margin-left:-41px}
+  .danmu-left{flex:1}
+  .danmu-right{flex:1}
+</style>
+<div id="app" class="show">
+  <img alt class="music-player" src="{{.server}}/images/d40.png" @click="pause">
+  <img alt title="再来一遍" class="danmu-angin" src="{{.server}}/images/c07.png" @click="startBarrage">
+  <a href="/" class="back-index"><img alt title="回到主页" src="{{.server}}/images/bol.png"></a>
+  <el-form ref="barrage" class="danmu-panel" :model="barrage" :rules="rulers">
+    <div class="danmu-left">
+      <img alt :src="barrage.avatar" width="48" height="48" class="up-face">
+      <div class="comment-input">
+        <el-form-item>
+          <el-input
+                  id="comment-uid"
+                  v-model="uid"
+                  placeholder="B站uid"
+                  prefix-icon="el-icon-s-opportunity"
+          ></el-input>
+        </el-form-item>
+        <el-form-item prop="nickname">
+          <el-input
+                  id="comment-author"
+                  v-model="barrage.nickname"
+                  placeholder="昵称 *"
+                  prefix-icon="el-icon-user"></el-input>
+        </el-form-item>
+      </div>
+      <p class="input-say">
+        tips:输入B站uid可以快速获得你的昵称和头像
+      </p>
+    </div>
+    <div class="danmu-right">
+      <el-form-item prop="content">
+        <el-input
+                v-model="barrage.content"
+                type="textarea"
+                placeholder="请输入内容"
+                maxlength="50"
+                show-word-limit></el-input>
+      </el-form-item>
+      <el-color-picker v-model="barrage.color"></el-color-picker>
+      <button type="button" class="comment-submit push-status" @click="commitBarrage">
+        发射弹幕
+      </button>
+    </div>
+  </el-form>
+</div>
+
+<script>
+  // 发送弹幕
+  function barrage(barrage){barrage=$.extend({close:true,bottom:0,max:10,speed:6,color:'#fff',old_ie_color:'#000000'},barrage||{});const time=new Date().getTime();const barrageId='barrage_'+time;const id='#'+barrageId;const divBarrage=$("<div class='barrage' id='"+barrageId+"'></div>").appendTo($('#app'));const windowHeight=$(window).height()-100;const bottom=(barrage.bottom===0)?Math.floor(Math.random()*windowHeight+40):barrage.bottom;divBarrage.css('bottom',bottom+'px');const divBarrageBox=$("<div class='barrage_box cl'></div>").appendTo(divBarrage);if(barrage.avatar){const img=$("<img src='' title='' >").appendTo(id+' .barrage_box');img.attr('src',barrage.avatar);img.attr('title',barrage.nickname)}divBarrageBox.append(" <div class='z p'></div>");const content=$('<p></p>').appendTo(id+' .barrage_box .p');content.empty().append(barrage.content);if(navigator.userAgent.indexOf('MSIE 6.0')>0||navigator.userAgent.indexOf('MSIE 7.0')>0||navigator.userAgent.indexOf('MSIE 8.0')>0){content.css('color',barrage.old_ie_color)}else{content.css('color',barrage.color)}let i=0;divBarrage.css('margin-right',i);let looper=setInterval(barrager,barrage.speed);function barrager(){const windowWidth=$(window).width()+500;if(i<windowWidth){i+=1;$(id).css('margin-right',i)}else{$(id).remove();return false}}divBarrageBox.mouseover(function(){clearInterval(looper)});divBarrageBox.mouseout(function(){looper=setInterval(barrager,barrage.speed)})}
+  let audio
+  let audioUrl = ''
+  new Vue({
+    el: '#app',
+    delimiters: ['${', '}'],
+    data(){
+      return {
+        uid: '',
+        barrage:{avatar:'https://i0.hdslb.com/bfs/face/member/noface.jpg',content:'',nickname:'',color:'#ffffff'},
+        rulers:{nickname:[{required:true,message:'昵称不能为空'}],content:[{required:true,message:'弹幕内容不能为空'}]},
+        // 当前是否正在提交弹幕
+        committing: false
+      }
+    },
+    mounted () {
+      xy.net.server="/api/v3/";
+      // 显示弹幕
+      this.startBarrage();
+      // 获取弹幕信息
+      // this.$store.dispatch('more/updateBarrage')
+      // this.showdanmus(this)
+      // audio = new Audio('/static/music/back.mp3')
+      // audio.play()
+      // audio.volume = 0.5
+    },
+    watch:{uid(){this.getBiliInfo()}},
+    methods: {
+      // 音乐播放和暂停
+      pause(){if(audioUrl!==""){if(audio.paused){audio.pause();audio=new Audio(audioUrl);audio.volume=0.5;audio.currentTime=0;audio.play();$('.music-player').css('animation','9.5s linear 0s normal none infinite rotate').css('-webkit-animation','9.5s linear 0s normal none infinite rotate')}else{audio.pause();$('.music-player').css('animation','none').css('-webkit-animation','none')}}},
+      // 提交弹幕信息
+      commitBarrage(){this.$refs.barrage.validate((ok)=>{if(ok&&!this.committing){this.committing=true;xy.net.request('plugins/barrages','post',this.barrage).then(()=>{this.$message.success('发送成功');this.barrage.content='';this.startBarrage()}).catch(msg=>this.$message.error(msg)).finally(()=>{this.committing=false})}})},
+      // 根据用户uid获取用户基本信息
+      getBiliInfo(){xy.net.request("tools/bili_info/"+this.uid,"get").then((res)=>{this.barrage.avatar=res.avatar;this.barrage.nickname=res.nickname})},
+      // 获取弹幕
+      startBarrage(){xy.net.request("plugins/barrages","get").then((res)=>{const barrages=res;const time=new Date().getTime();const barrageId='barrage_'+time;const id='#'+barrageId;$('#app').append('<div id="'+barrageId+'" class="danmu-first"  style="position:fixed;"><img src="{{.server}}/images/c61.png"/><p>'+barrages.length+'条弹幕已填充完毕，准备发射!</p></div>');let i=0;let j=0;const show=setInterval(function(){if(i<barrages.length){barrage(barrages[i])}else{clearInterval(show)}i++},1000);setInterval(function(){const windowWidth=$(window).width()+500;if(j<windowWidth){j+=2;$(id).css('right',j)}else{$(id).remove();return false}},20)}).catch(()=>{this.$message.error('获取弹幕失败')})}
+    }
+  })
+</script>
+
+

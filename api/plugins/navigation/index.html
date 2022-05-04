@@ -1,0 +1,257 @@
+<style>
+    .m-toolbar-provider a{display:block;float:left;width:90px;height:32px;text-indent:-1000px;border-bottom:1px solid #eaeaea;cursor:pointer;background-position:center 32px;background-repeat:no-repeat}
+    .web-choose{margin-top:-13px!important;background-color:#f9f9f9;border:1px solid #e4e7ed}
+    .item-web{display:flex;background:#fff;transition:all .3s;height:50px;width:250px;padding:10px;align-items:center;cursor:pointer;margin:5px}
+    .item-web:hover{background:rgba(230,244,250,.5);transform:translateY(-6px);-webkit-transform:translateY(-6px);-moz-transform:translateY(-6px);box-shadow:0 26px 40px -24px rgba(107,107,107,.3);-webkit-box-shadow:0 26px 40px -24px rgba(97,97,97,.3);-moz-box-shadow:0 26px 40px -24px rgba(105,105,105,.3);-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease}
+    .item-web .item-img{width:50px;height:50px;border-radius:50%}
+    .item-web .item-info{margin-left:10px}
+    .item-web .item-info .title{color:#373e4a;font-weight:700;font-size:15px}
+    .item-web .item-info .dec{margin-top:6px;color:#979898}
+    .m-shortcut-panel{padding-top:7px;padding-bottom:7px;border-bottom:1px solid #e5e5e5;transition:.3s border}
+    .m-shortcut-panel{display:flex;position:relative;text-align:center;justify-content:center;opacity:.8;background-color:#fefefe}
+    .m-shortcut-panel .item a{overflow:hidden;display:block;width:80px;height:85px;border-radius:2px;padding-top:10px;padding-bottom:0;margin:0 auto;text-align:center;position:relative}
+    .m-shortcut-panel .item a .icon,.m-shortcut-panel .item a img{border-radius:8px;display:block;margin:0 auto;width:54px;height:54px;font-size:24px;transition:.2s all ease-out;text-align:center;overflow:hidden;text-decoration:none;position:relative}
+    .m-shortcut-panel .item a .title{color:#222;position:absolute;bottom:0;left:0;right:0;text-align:center;display:block;line-height:24px;height:24px;font-size:13px;width:100%;border-radius:12px}
+    .m-shortcut-panel .item a:hover .icon,.m-shortcut-panel .item a:hover img{margin-top:-6px;-webkit-filter:drop-shadow(0 6px 6px rgba(100,100,100,.6));filter:drop-shadow(0 6px 6px rgba(100,100,100,.3))}
+    li,ul{list-style:none}
+
+
+    /*搜索建议*/
+    .autocomplete-suggestions{height:auto!important;border:1px solid #bbb;background:#fff;background:rgba(255,255,255,.95);overflow:auto;left:2px;top:42px;border-bottom-left-radius:2px;border-bottom-right-radius:2px;padding:4px 5px 4px 4px}
+    .autocomplete-suggestion{width:auto!important;height:auto!important;margin:0!important;padding:5px 10px;white-space:nowrap;color:#333;font-size:14px;overflow:hidden;cursor:pointer}
+    .autocomplete-suggestion:hover{background-color:#eee}
+    .autocomplete-suggestions strong{font-weight:400;margin:0 2px;color:#38b19e}
+    .search-logo{width:128px;height:60px;display:flex;align-items:center}
+    .logo .web{cursor:pointer;width:128px}
+    .logo-list{border:1px solid #d2d2d2;border-bottom:none;text-align:center;background:#fff}
+    .img-box:hover{background-color:#eee}
+    .logo-img{margin:5px 0;width:120px;height:auto;cursor:pointer}
+    .wd-search .logo{width:128px;height:42px;z-index:9999;position:relative;margin-bottom:10px}
+    .wd-search .main-form{margin:10px 0 0 0;padding:0;float:left}
+    .wd-search .services{height:31px;width:460px;margin-right:-10px;overflow:hidden;line-height:24px;padding:0}
+    .wd-search .services .item{display:inline;float:left;height:24px;line-height:24px;width:60px;position:relative;margin-right:5px;cursor:pointer;color:#fff;text-align:center;font-family:STHeiti,"Microsoft Yahei",Arial,Simhei,Simsun;font-size:14px;backdrop-filter:blur(8px)}
+    .wd-search .services .item.active{background:#00a1d6;position:relative}
+    .wd-search .services .item.active .pt{position:absolute;bottom:-5px;left:50%;margin-left:-3px;width:0;height:0;font-size:0;line-height:0;border-top:solid 5px #00a1d6;border-left:dashed 3px transparent;border-right:dashed 3px transparent;border-bottom:0}
+    .wd-search .services .item input{display:none}
+    .wd-search .services .item label{cursor:pointer}
+    .wd-search .box{width:452px;height:40px;margin-top:-9px;position:relative}
+    .wd-search .box div{width:100%;height:37px;display:block;margin:10px auto 30px;position:relative}
+    .wd-search .box button{padding:0;margin:0;border:none;outline:0;background:0 0}
+    .wd-search .box div .wd{width:100%;height:100%;display:block;border:1px solid #ddd;border-radius:5px;line-height:100%;font-size:15px;text-indent:7px;transition:.3s all}
+    .wd-search .box div button{width:40px;height:40px;display:block;position:absolute;z-index:10;right:6px;top:0;cursor:pointer;font-size:22px;line-height:40px;border-radius:50%;color:#777}
+    .wd-search .box #icon-sousuo{width:20px;height:20px;vertical-align:-.15em;fill:currentColor;overflow:hidden}
+    #app{display:flex;justify-content:center}
+    .navigation-content{width:80%;}
+    .search-content{display:flex;justify-content:flex-end;width:80%}
+
+
+    .section-item .link a{display:flex}
+    .section-item .link .link-ico{display:flex;align-items:center}
+    .section-item .link .link-ico img{width:16px;height:16px}
+    .site_list{margin-top:-28px;padding-bottom:20px}
+    .site_list span.title{margin-left:3px;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:150px;display:block}
+    .site_list .item-list{margin:-8px 12px}
+    .site_list .section-list{margin-top:8px;display:flex;flex-wrap:wrap}
+    .site_list .section-item{margin:10px 0;position:relative;padding:0 5px;box-sizing:border-box;display:block;overflow:hidden;border:1px solid transparent}
+    .site_list .section-item .link{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cate-item{box-sizing:border-box;position:relative;page-break-inside:avoid;-moz-column-break-inside:avoid;break-inside:avoid;counter-increment:item-counter;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;border-left:1px solid #e5e5e5;padding:20px 10px 0}
+    .cate-item .title{background:linear-gradient(to right,#f2f2f2,rgba(222,222,222,0));display:flex;align-items:center}
+    .cate-item .title .line{width:5px;height:32px;background:#78be40;display:inline-block}
+    .cate-item .title span{color:#78be40;font-size:15px;font-weight:bolder;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;margin-left:10px;padding-top:5px;display:block;line-height:30px}
+</style>
+<!--个人导航页面-->
+<div id="app" style="margin-bottom: 20px">
+    <div class="navigation-content">
+        <!--  搜索部分  -->
+        <div class="search-content">
+            <div class="wd-search clearfix" role="search">
+                <div class="logo">
+                    <div class="search-logo">
+                        <img alt class="img web" :src="topSearch.img" :title="topSearch.name" @click="show=!show">
+                    </div>
+                    <div v-for="(item,index) in nowChoose"
+                         v-show="show"
+                         :key="index"
+                         :title="item.name"
+                         class="logo-list"
+                         @click="changeSearch(item)"
+                    >
+                        <div class="img-box">
+                            <img class="logo-img" alt :src="item.img">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-form">
+                    <ul class="services" data-hook="services">
+                        <li class="item" :class="now==='web'?'active':''" @click="changeItem('web')">
+                            <label>网页</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='video'?'active':''" @click="changeItem('video')">
+                            <label>视频</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='community'?'active':''" @click="changeItem('community')">
+                            <label>社区</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='img'?'active':''" @click="changeItem('img')">
+                            <label>图片</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='music'?'active':''" @click="changeItem('music')">
+                            <label>音乐</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='book'?'active':''" @click="changeItem('book')">
+                            <label>百科</label><i class="pt"></i>
+                        </li>
+                        <li class="item" :class="now==='translate'?'active':''" @click="changeItem('translate')">
+                            <label>翻译</label><i class="pt"></i>
+                        </li>
+                    </ul>
+                    <div class="box">
+                        <div>
+                            <input v-model="searchText" class="wd" type="text" :placeholder="topSearch.tip" @keyup.enter="openSearch(topSearch.url)">
+                            <div v-show="suggests!=null" class="autocomplete-suggestions" style="position: absolute;z-index: 9999; width:403px; display: block;">
+                                <div
+                                        v-for="(item,index) in suggests"
+                                        :key="index"
+                                        class="autocomplete-suggestion"
+                                        data-index="0"
+                                        @click="clickSuggest(item.key)"
+                                        v-html="item.html"
+                                ></div>
+                            </div>
+                            <button @click="openSearch(topSearch.url)">
+                                <svg class="icon" style=" width: 21px; height: 21px; opacity: 0.5;" aria-hidden="true">
+                                    <svg id="icon-sousuo" viewBox="0 0 1024 1024">
+                                        <path d="M950.820202 899.620202l-168.210101-168.080808c64.646465-74.731313 100.072727-169.115152 100.072727-268.8 0-109.89899-42.79596-213.20404-120.50101-290.779798S581.171717 51.329293 471.40202 51.329293c-109.89899 0-213.20404 42.79596-290.779798 120.50101-77.705051 77.705051-120.50101 181.010101-120.50101 290.779798 0 109.89899 42.79596 213.20404 120.50101 290.779798 77.705051 77.705051 181.010101 120.50101 290.779798 120.50101 90.763636 0 177.00202-29.220202 248.113132-83.135353l170.149494 170.149495c8.40404 8.40404 19.523232 12.670707 30.642425 12.670707s22.109091-4.266667 30.642424-12.670707c16.808081-16.937374 16.808081-44.347475-0.129293-61.284849z m-804.20202-437.010101c0-179.070707 145.713131-324.654545 324.654545-324.654545 179.070707 0 324.654545 145.713131 324.654546 324.654545 0.129293 179.070707-145.454545 324.783838-324.525253 324.783838S146.618182 641.680808 146.618182 462.610101z m0 0" fill="" />
+                                    </svg>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        导航部分-->
+        <div class="navigation-content">
+            <div class="m-inner m-layout">
+                <ul class="m-shortcut-panel clearfix">
+                    <li v-for="(item,index) in topWeb" :key="index" class="item">
+                        <a target="_blank" :href="item.url">
+                            <img :alt="item.name" :title="item.name" :src="item.img" width="54" height="54">
+                            <div class="title"><span>${ item.name }</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="m-inner m-layout web-choose">
+                <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+                    <el-tab-pane label="网址导航" name="first">
+                        <div class="site_list">
+                            <div v-for="(item,index) in navigations" :key="index" class="cate-item">
+                                <div class="title">
+                                    <div class="line" :style="'background:'+item.color" ></div>
+                                    <span :style="'color:'+item.color">${ item.name }</span>
+                                </div>
+                                <div class="item-list">
+                                    <div class="section-list clearfix">
+                                        <div v-for="(item2,index2) in item.child" :key="index2" class="section-item">
+                                            <div class="link">
+                                                <a :href="item2.color" target="_blank" :title="item2.name">
+                                                    <div class="link-ico"><img :src="'https://ico.di8du.com/get.php?url='+item2.color" alt :title="item2.name"></div>
+                                                    <span class="title">${ item2.name }</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </el-tab-pane>
+                    <el-tab-pane label="开发中" name="second">
+                        开发中
+                    </el-tab-pane>
+                </el-tabs>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const server = '{{.server}}'
+    new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data () {
+            const web=[{name:'百度搜索',img:server+'/images/baidu.png',url:'https://www.baidu.com/s?wd=%s',tip:'请输入关键词进行搜索'},{name:'谷歌搜索',img:server+'/images/google.png',url:'https://www.google.com.hk/search?q=%s',tip:'请输入关键词进行搜索'},{name:'bing搜索',img:server+'/images/bing.png',url:'https://www.bing.com/search?q=%s',tip:'请输入关键词进行搜索'},{name:'搜狗搜索',img:server+'/images/sogou.png',url:'https://www.sogou.com/web?query=%s',tip:'请输入关键词进行搜索'},{name:'360搜索',img:server+'/images/360.png',url:'https://www.so.com/s?q=%s',tip:'请输入关键词进行搜索'},{name:'DuckDuckGo',img:server+'/images/duckduckgo.png',url:'https://duckduckgo.com?q=%s',tip:'请输入关键词进行搜索'}]
+            // 视频搜索引擎
+            const video=[{name:'哔哩哔哩',img:server+'/images/bilibili.png',url:'https://search.bilibili.com/all?keyword=%s',tip:'请输入关键词进行搜索'},{name:'AcFun',img:server+'/images/acfun.png',url:'https://www.acfun.cn/search?keyword=%s',tip:'请输入关键词进行搜索'},{name:'niconico',img:server+'/images/niconico.svg',url:'https://www.nicovideo.jp/search/%s',tip:'请输入关键词进行搜索'},{name:'DiliDili',img:server+'/images/dilidili.png',url:'http://dilidili.online/search?q=%s',tip:'请输入关键词进行搜索'},{name:'YouTub',img:server+'/images/youtub.png',url:'https://www.youtube.com/results?search_query=%s',tip:'请输入关键词进行搜索'},{name:'网易公开课',img:server+'/images/wangyi.png',url:'https://open.163.com/newview/search?query=%s',tip:'请输入关键词进行搜索'},{name:'腾讯视频',img:server+'/images/tencent.png',url:'https://v.qq.com/x/search/?q=%s',tip:'请输入关键词进行搜索'},{name:'爱奇艺',img:server+'/images/aiqiyi.png',url:'https://so.iqiyi.com/so/q_%s',tip:'请输入关键词进行搜索'},{name:'优酷',img:server+'/images/youku.png',url:'https://so.youku.com/search_video/q_%s',tip:'请输入关键词进行搜索'}]
+            // 社区
+            const community=[{name:'百度贴吧',img:server+'/images/tieba.png',url:'http://tieba.baidu.com/f/search/res?ie=utf-8&qw=%s',tip:'请输入关键词进行搜索'},{name:'吾爱破解',img:server+'/images/52.png',url:'http://zhannei.baidu.com/cse/site?q=%s',tip:'请输入关键词进行搜索'},{name:'游侠网',img:server+'/images/youxia.png',url:'https://so.ali213.net/s/c?keyword=%s',tip:'请输入关键词进行搜索'},{name:'StackOverflow',img:server+'/images/stackoverflow.png',url:'https://stackoverflow.com/search?q=%s',tip:'请输入关键词进行搜索'},{name:'知乎',img:server+'/images/zhihu.png',url:'https://www.zhihu.com/search?q=%s',tip:'请输入关键词进行搜索'},{name:'掘金',img:server+'/images/juejin.png',url:'https://juejin.im/search?query=%s&type=all',tip:'请输入关键词进行搜索'},{name:'思否',img:server+'/images/sifou.png',url:'https://segmentfault.com/search?q=%s',tip:'请输入关键词进行搜索'},{name:'CSDN',img:server+'/images/csdn.png',url:'https://so.csdn.net/so/search/s.do?q=%s',tip:'请输入关键词进行搜索'}]
+            // 图片
+            const image=[{name:'百度图片',img:server+'/images/baiduimg.png',url:'https://image.baidu.com/search/index?tn=baiduimage&word=%s',tip:'请输入关键词进行搜索'},{name:'谷歌图片',img:server+'/images/google.png',url:'https://www.google.com.hk/search?q=%s&tbm=isch',tip:'请输入关键词进行搜索'},{name:'Pixiv',img:server+'/images/pixiv.svg',url:'https://www.pixiv.net/tags/%s/artworks',tip:'请输入关键词进行搜索'},{name:'Bing图片',img:server+'/images/bing.png',url:'https://www.bing.com/images/search?q=%s',tip:'请输入关键词进行搜索'},{name:'花瓣',img:server+'/images/huaban.png',url:'https://huaban.com/search/?q=%s',tip:'请输入关键词进行搜索'},{name:'Flickr',img:server+'/images/flickr.png',url:'https://www.flickr.com/search/?text=%s',tip:'请输入关键词进行搜索'},{name:'Picsearch',img:server+'/images/picsearch.png',url:'https://cn.picsearch.com/index.cgi?q=%s',tip:'请输入关键词进行搜索'}]
+            // 音乐
+            const music=[{name:'网易云音乐',img:server+'/images/music126.png',url:'https://music.163.com/#/search/m/?s=%s',tip:'请输入关键词进行搜索'},{name:'QQ音乐',img:server+'/images/qqmusic.png',url:'https://y.qq.com/portal/search.html?w=%s',tip:'请输入关键词进行搜索'},{name:'酷狗音乐',img:server+'/images/kugou.png',url:'https://www.kugou.com/yy/html/search.html?searchKeyWord=%s',tip:'请输入关键词进行搜索'},{name:'酷我音乐',img:server+'/images/kuwo.png',url:'http://www.kuwo.cn/search/list?key=%s',tip:'请输入关键词进行搜索'},{name:'虾米音乐',img:server+'/images/xiami.png',url:'https://www.xiami.com/list?scene=search&type=song&query={"searchKey":"%s"}',tip:'请输入关键词进行搜索'}]
+            // 百科
+            const baiKe=[{name:'萌娘百科',img:server+'/images/mennian.png',url:'https://zh.moegirl.org/index.php?search=%s',tip:'请输入关键词进行搜索'},{name:'维基百科',img:server+'/images/wiki.png',url:'https://zh.wikipedia.org/wiki/%s',tip:'请输入关键词进行搜索'},{name:'百度百科',img:server+'/images/baidubaike.png',url:'https://baike.baidu.com/search?word=%s&enc=utf8',tip:'请输入关键词进行搜索'},{name:'KomicaWiKi',img:server+'/images/komica.png',url:'https://wiki.komica.org/index.php?search=%s',tip:'请输入关键词进行搜索'}]
+            // 翻译
+            const translate=[{name:'谷歌翻译',img:server+'/images/google.png',url:'https://translate.google.cn/#view=home&op=translate&sl=zh-CN&tl=en&text=%s',tip:'请输入中文,翻译结果为英文'},{name:'有道翻译',img:server+'/images/youdao.png',url:'https://dict.youdao.com/search?q=%s',tip:'请输入中文,翻译结果为英文'},{name:'百度翻译',img:server+'/images/baidutranslate.png',url:'https://fanyi.baidu.com/#zh/en/%s',tip:'请输入中文,翻译结果为英文'}]
+            // 顶部的图标
+            const topWeb=[{name:'小游网',img:server+'/images/top/xiaoyou.png',url:'https://xiaoyou66.com'},{name:'哔哩哔哩',img:server+'/images/top/bilibili.jpg',url:'https://www.bilibili.com/'},{name:'Steam',img:server+'/images/top/steam.jpg',url:'https://store.steampowered.com/'},{name:'动漫之家',img:server+'/images/top/donman.png',url:'https://www.dmzj.com/'},{name:'Pixiv',img:server+'/images/top/pixiv.jpg',url:'https://www.pixiv.net/'},{name:'网易云音乐',img:server+'/images/top/music163.jpg',url:'https://music.163.com/'},{name:'轻之文库',img:server+'/images/top/qing.jpg',url:'https://www.linovel.net/'},{name:'番组计划',img:server+'/images/top/fanzu.jpg',url:'https://bangumi.tv/'},{name:'萌娘百科',img:server+'/images/top/meng.webp',url:'https://zh.moegirl.org/Mainpage'}]
+            // 网址导航
+            return {
+                web,
+                baiKe,
+                community,
+                translate,
+                image,
+                music,
+                video,
+                nowChoose: web,
+                now: 'web',
+                topSearch:{name:'百度搜索',img:server+'/images/baidu.png',url:'https://www.baidu.com/s?wd=%s',tip:'输入你想搜索的网页'},
+                searchText: '',
+                suggests: null,
+                show: false,
+                activeName: 'first',
+                topWeb,
+                navigations: []
+            }
+        },
+        watch: {
+            searchText (e) {
+                // 判断内容是否为空
+                // if (this.searchText === null || this.searchText === '') {
+                //   this.suggests = null
+                //   return
+                // }
+                // 发送请求获取关键词
+                // this.tools.requests(this, this.G.SERVER + '/api/v1/more/get/suggest', { keyword: this.searchText }, 'get').then((response) => {
+                //   if (response != null && response.code === 100) {
+                //     const data = response.data
+                //     const suggests = []
+                //     for (let i = 0; i < data.length; i++) {
+                //       suggests.push({ html: data[i].replace(this.searchText, '<strong>' + this.searchText + '</strong>'), key: data[i] })
+                //     }
+                //     Vue.set(this, 'suggests', suggests)
+                //   }
+                // })
+            },
+        },
+        mounted(){
+            xy.net.server="/api/v3/"
+            this.getAllSite()
+        },
+        methods: {
+            // 切换搜索内容
+            changeItem(item){this.now=item;switch(item){case'web':this.nowChoose=this.web;this.topSearch=this.web[0];break; case'video':this.nowChoose=this.video;this.topSearch=this.video[0];break; case'community':this.nowChoose=this.community;this.topSearch=this.community[0];break; case'img':this.nowChoose=this.image;this.topSearch=this.image[0];break; case'music':this.nowChoose=this.music;this.topSearch=this.music[0];break; case'book':this.nowChoose=this.baiKe;this.topSearch=this.baiKe[0];break;case'translate':this.nowChoose=this.translate;this.topSearch=this.translate[0];break}},
+            // 修改搜索引擎
+            changeSearch(item){Vue.set(this,'topSearch',item);this.show=false},
+            // 点击某一个关键词
+            clickSuggest(item){this.searchText=item;const that=this;setTimeout(function(){that.suggests=null},300)},
+            // 打开网址
+            openSearch(url){window.open(url.replace('%s',this.searchText))},
+            handleClick () {},
+            // 获取所有的网站
+            getAllSite(){xy.net.request("plugins/navigation/links","GET",{}).then((data)=>{this.navigations=data})}
+        }
+    });
+</script>
+

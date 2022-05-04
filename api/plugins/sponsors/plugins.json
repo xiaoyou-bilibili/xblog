@@ -4,6 +4,6 @@
   "description": "显示用户的赞助信息",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
-  "auth": ["router","database","widget","static"]
+  "site": "https://github.com/xblog-plugins/plugin-sponsors",
+  "auth": ["router","database","widget","static","tools"]
 }

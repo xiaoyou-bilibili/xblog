@@ -4,6 +4,6 @@
   "description": "侧边栏显示公告栏",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
+  "site": "https://github.com/xblog-plugins/plugin-notice",
   "auth": ["widget","tools"]
 }

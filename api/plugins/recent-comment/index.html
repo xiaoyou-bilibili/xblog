@@ -1,0 +1,34 @@
+<style>
+    .recent-comments a{color:#4c4c4c;text-decoration:none}
+    .recent-comments a:hover{color:#618eba}
+    .recent-comments .comment-img{width:45px;height:45px}
+    .recent-comments .comment-listitem{list-style:none;padding:12px 0!important;border-bottom:1px solid #e5e9ef}
+    .recent-comments .comment-user{font-size:15px}
+    .recent-comments .comment-avatar{float:left}
+    .recent-comments .comment-avatar img{float:left;margin-right:8px;width:45px;height:45px;border-radius:50%;margin-top:-3px;-webkit-box-shadow:0 .125rem 1.0625rem 0 rgba(0,0,0,.1);box-shadow:0 .125rem 1.0625rem 0 rgba(0,0,0,.1)}
+    .recent-comments .comment-author{float:left;margin-right:10px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;max-width:95px}
+    .recent-comments .comment-content{font-size:16px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;width:75%}
+    .recent-comments .widget a{color:#4c4c4c;text-decoration:none;-webkit-transition:color .3s;transition:color .3s}
+</style>
+<div class="recent-comments">
+    {{range $index, $element := .comments}}
+    <li class="comment-listitem">
+        <div class="comment-user">
+        <span class="comment-avatar">
+          <img alt src="{{$element.avatar}}" class="avatar avatar-50 photo" height="50" width="50">
+        </span>
+           <div class="comment-author">
+               {{$element.nickname}}
+           </div>
+           <span class="comment-date">{{$element.date}}</span>
+        </div>
+        <div class="comment-content-link">
+           <a href="/archives/{{$element.postId}}#comment-{{$element.id}}">
+               <div class="comment-content">
+                   {{$element.content | unescaped}}
+               </div>
+           </a>
+        </div>
+    </li>
+    {{end}}
+</div>

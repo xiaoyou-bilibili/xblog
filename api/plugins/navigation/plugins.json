@@ -1,0 +1,9 @@
+{
+  "name": "个人导航",
+  "unique": "navigation",
+  "description": "可以设置用户常用的导航网址",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://github.com/xblog-plugins/plugin-navigation",
+  "auth": ["router","database","net","tools","widget"]
+}

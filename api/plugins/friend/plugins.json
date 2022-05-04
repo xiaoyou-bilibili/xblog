@@ -4,6 +4,6 @@
   "description": "可以显示友链信息，同时支持用户自助申请友链",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
+  "site": "https://github.com/xblog-plugins/plugin-friend",
   "auth": ["router","tools","database","mail","widget"]
 }

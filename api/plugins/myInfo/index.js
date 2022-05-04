@@ -17,7 +17,7 @@ const keySteam = "my_steam"
 const keyBili = "my_bili_bili"
 
 // 添加卡片
-widget.addSide(true,"","index.html",function () {
+widget.addSide("","index.html",function () {
     // 初始化数据库链接
     let db = database.newDb(dbArticle)
     let commentDb = database.newDb(dbComment)
@@ -37,4 +37,16 @@ widget.addSide(true,"","index.html",function () {
     }
 },true)
 
+// 添加设置信息
+widget.addSetting("个人信息设置",1,[
+    {title:"个人介绍",type: "input",key: keyIntroduce},
+    {title:"个人头像",type: "upload",key: keyAvatar},
+    {title:"卡片背景",type: "upload",key: keyBackground},
+    {title:"telegram",type: "input",key: keyTelegram},
+    {title:"github",type: "input",key: keyGithub},
+    {title:"Twitter",type: "input",key: keyTwitter},
+    {title:"知乎",type: "input",key: keyZhiHu},
+    {title:"steam",type: "input",key: keySteam},
+    {title:"B站",type: "input",key: keyBili}
+])
 

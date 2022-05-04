@@ -1,0 +1,113 @@
+<style>
+    footer#colophon {display: none;}
+    .el-progress{width:200px}
+    .skill-list{display:flex}
+    .skill-process{width:290px}
+    .skill-text-item{margin:10px 2px;float:none;width:100%;list-style:circle;font-size:17px;font-weight:600}
+    .skill-text{margin-left:100px;color:#d6d5b7}
+    .skill{display:flex;align-items:center}
+    .skill p{flex:1;color:#8cc7b5;font-size:14px;font-weight:500}
+    .character.morning{background-image:url({{.server}}/images/bg.jpg)}
+    ul.staff_list1 .name a{color:#777790}
+    .character{background-color:#777778;background-position:center center;background-size:cover;position:relative;z-index:1}
+    .about_f1_box{color:#fff}
+    .l-senction{width:100%;min-width:1200px;position:relative;box-sizing:border-box}
+    .f1_dot_bg{position:absolute;left:0;right:0;top:0;bottom:0;background-image:url({{.server}}/images/dot.png);background-position:center center;background-repeat:repeat;opacity:.8;background-color:rgba(0,0,0,.35)}
+    .l-inner.character-box{padding:27px 100px 185px}
+    .l-inner{width:1000px;padding:100px;position:relative;margin:0 auto;zoom:1}
+    .character h3{font-size:24px;color:#fff;background-image:url({{.server}}/images/line_wave_w.png);padding:0 3px 15px 3px;margin-bottom:40px;background-repeat:repeat-x;background-position:0 bottom;display:inline-block}
+    .about_f1_box{padding-left:178px;position:relative}
+    .about_f1_tx{position:absolute;left:0;top:4px}
+    .my-avatar{border-radius:50%;transition:all .2s;cursor:pointer}
+    .my-avatar:hover{transform:scale(1.2)}
+    .about_f1_name{font-size:36px;padding:0;margin:0 0 25px 0}
+    .about_f1_text{font-size:16px;padding-bottom:18px;border-bottom:1px dashed #fff}
+    .about_sc{background:#fff url({{.server}}/images/bg_pattern1.png) repeat 0 top}
+    .l-senction{width:100%;min-width:1200px;position:relative;box-sizing:border-box}
+    .about_sc .l-inner{padding-top:50px;padding-bottom:180px}
+    .l-inner{width:1000px;padding:100px;position:relative;margin:0 auto;zoom:1}
+    .about_sc:after{content:" ";display:block;width:100%;height:82px;position:absolute;left:0;top:-82px;z-index:1;background-image:url({{.server}}/images/bg_staff.png);background-repeat:repeat-x;background-position:-489px bottom}
+    .about_sc h4{color:#ffa9be;font-family:Arvo,sans-serif;letter-spacing:.08em;font-size:18px;letter-spacing:.15em;display:inline-block;width:150px;border-bottom:#ffa9be solid 2px;line-height:1.4em;margin-bottom:24px;padding-bottom:6px}
+    .sc_staff ul{display:block;padding-bottom:40px;margin:0 -1%;zoom:1}
+    .sc_staff li{float:left;color:#777790;margin-right:1%;margin-left:1%;margin-bottom:22px;list-style:none}
+    .sc_staff .des{font-size:10px;font-family:NotoSans-bold,sans-serif;border-bottom:#777790 solid 2px;line-height:1.8em;margin-bottom:5px}
+    .sc_staff .staff_list1 .name{font-size:20px;font-family:NotoSans-bold,sans-serif;line-height:1.1em}
+    .sc_staff ul:after{content:"";clear:both;display:block}
+    .about_3rd{background:#f5f5f5 url({{.server}}/images/bg_pattern1.png) repeat 0 top}
+    .about_3rd .l-inner{padding-bottom:170px}
+    .about_3rd:after{content:" ";display:block;width:100%;height:82px;position:absolute;left:0;top:-82px;z-index:1;background:url({{.server}}/images/bg_music.png) no-repeat bottom center;background-repeat:repeat-x;background-position:-490px bottom}
+    .about_3rd h3{line-height:1em;font-size:24px;font-family:Arvo,sans-serif;letter-spacing:.08em;color:#777790;position:relative;display:inline-block;margin-bottom:65px;padding:0 3px 5px 3px}
+    .about_3rd h3:after{content:" ";display:block;background:url({{.server}}/images/line_wave_g.png) repeat-x left center;width:100%;height:7px;position:absolute;left:0;bottom:-15px;z-index:0}
+</style>
+<div id="app">
+    <section id="aboutTopBg" class="l-senction character morning">
+        <div class="f1_dot_bg"></div>
+        <div class="l-inner character-box">
+            <h3>个人简介</h3>
+            <div class="about_f1_box">
+                <div class="about_f1_tx">
+                    <img class="my-avatar" alt src=" {{.avatar}}" width="128" height="128">
+                </div>
+                <p class="about_f1_name">
+                    {{.nickname}}
+                </p>
+                <p class="about_f1_text">
+                    {{.introduce}}
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="sc" class="l-senction about_sc">
+        <div class="l-inner">
+            <div class="sc_staff">
+                <h4>个人资料</h4>
+                <ul class="staff_list1">
+                    <li v-for="(item,index) in profile" :key="index">
+                        <p class="des">
+                            ${ item.item }
+                        </p>
+                        <p class="name" v-html="item.content" ></p>
+                    </li>
+                </ul>
+                <h4>技能点</h4>
+                <div class="staff_list1 skill-list">
+                    <div class="skill-process">
+                        <div v-for="(item,index) in skillDot" :key="index" class="skill">
+                            <p :style="'color:'+item.color">
+                                ${item.name}
+                            </p>
+                            <el-progress :color="item.color" :show-text="false" :stroke-width="15" :percentage="item.process"></el-progress>
+                        </div>
+                    </div>
+                    <ul class="skill-text">
+                        <li v-for="(item,index) in skillText" :key="index" :style="'color:'+item.color" class="skill-text-item">
+                            ${item.text}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="l-senction about_3rd">
+        <div class="l-inner">
+            <h3>项目经验</h3>
+            <div class="about_3rd_list"></div>
+        </div>
+    </section>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        delimiters: ['${', '}'],
+        data () {
+            const profile = JSON.parse({{.profile|unescaped}})
+            const skillDot = JSON.parse({{.skillPoint|unescaped}})
+            const skillText = JSON.parse({{.skillDetail|unescaped}})
+            return {
+                profile,
+                skillDot,
+                skillText
+            }
+        }
+    })
+</script>

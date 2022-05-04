@@ -1,0 +1,9 @@
+{
+  "name": "弹幕留言墙",
+  "unique": "barrages",
+  "description": "可以发送弹幕来进行留言",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://github.com/xblog-plugins/plugin-barrages",
+  "auth": ["router","tools","database","widget"]
+}

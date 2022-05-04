@@ -1,0 +1,13 @@
+<style>
+    /*隐藏循环播放按钮*/
+    .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
+        display: none;
+    }
+</style>
+<link href="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.css" rel="stylesheet">
+<div id="aplayer" ></div>
+<script src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script>
+    const content="{{.content}}";let now=0;let fold=false;const play=new APlayer({container:document.getElementById('aplayer'),lrcType:3,listMaxHeight:'350px',audio:JSON.parse(content)});play.on('listswitch',(e)=>{now=e.index});play.on('listshow',()=>{fold=false});play.on('listhide',()=>{fold=true});let music=localStorage.getItem('music_setting');if(music){music=JSON.parse(music);if(music.fold){play.list.hide()}play.list.switch(music.now);play.audio.currentTime=music.seek;if(!music.paused){play.play()}}window.addEventListener('beforeunload',(event1,event2)=>{if(play){localStorage.setItem('music_setting',JSON.stringify({seek:play.audio.currentTime,paused:play.audio.paused,now,fold}))}})
+</script>
+

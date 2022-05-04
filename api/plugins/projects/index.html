@@ -1,0 +1,84 @@
+<style>
+  #app{display:flex;justify-content:center;margin-top:10px}
+  .el-carousel--horizontal{width:800px;margin-top:50px}
+  .el-carousel__container{height:200px!important}
+  .project-list{display:flex;flex-wrap:wrap;width:900px;justify-content:center}
+  .project:hover{box-shadow:0 2px 8px #bbb}
+  .project{display:flex;flex-direction:column;background:#fff;border-radius:5px;padding:3px;margin:5px 12px;box-shadow:0 1px 2px #c5c5c5}
+  .project-img{overflow:hidden;width:170px;height:120px}
+  .other-link{display:flex}
+  .other-link a{font-size:14px;margin-left:3px;color:#0366d6;cursor:pointer}
+  .other-link a:hover{text-decoration:underline}
+  .project-bottom{display:flex}
+  .project-detail{display:flex}
+  .project-detail img{width:170px;height:120px;transition:all .3s;border-radius:5px}
+  .project-detail img:hover{transform:scale(1.3)}
+  .project-dec{margin-left:10px;width:200px}
+  .project-dec .title{font-size:17px;font-weight:700;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+  .project-dec .dec{font-size:12px;height:71px;text-overflow:ellipsis;overflow-y:auto;margin-top:5px;color:#8492a6}
+  .project-dec .view{align-items:center;display:flex;margin-top:2px}
+  .project-dec .time{font-size:13px;color:#b4bbbf;flex:1;justify-content:flex-end;display:flex}
+  .img-footer{position:absolute;width:800px;bottom:0;height:35px;background-color:rgba(0,0,0,.4)}
+  .img-footer div{color:#fff;font-size:16px;margin:5px 0 0 5px}
+  .img-list{width:400px;height:200px}
+  #bg{position:fixed;z-index:-2;background:url(/static/images/project/bg_01.jpg);left:0;right:0;bottom:0;top:0}
+  #canvas_bg{position:fixed;z-index:-1;left:0;right:0;bottom:0;top:0}
+  #content{width:772px}
+</style>
+<div id="app">
+  <div>
+    <el-carousel indicator-position="outside" type="card">
+      {{range $index, $element := .top_content}}
+      <el-carousel-item key="{{ $element }}">
+        <a target="_blank" href="{{ $element.url }}">
+          <img class="img-list" src="{{ $element.image }}">
+          <div class="img-footer">
+            <div>{{ $element.title }}</div>
+          </div>
+        </a>
+      </el-carousel-item>
+      {{end}}
+    </el-carousel>
+    <div class="project-list">
+      {{range $index, $element := .bottom_content}}
+      <div class="project">
+        <div class="project-detail">
+          <div class="project-img">
+            <img src="{{$element.image}}">
+          </div>
+          <div class="project-dec">
+            <div class="title">
+              {{ $element.name }}
+            </div>
+            <div class="dec">
+              {{ $element.dec }}
+            </div>
+            <div class="view">
+              <div class="other-link">
+                {{if ne .video ""}}
+                <a href="{{$element.video}}" target="_blank">视频</a>
+                {{end}}
+                {{if ne .blog ""}}
+                <a href="{{$element.blog}}" target="_blank">博客</a>
+                {{end}}
+                {{if ne .code ""}}
+                <a href="{{$element.code}}" target="_blank">源码</a>
+                {{end}}
+              </div>
+              <div class="time">
+                {{ $element.time }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+<script>
+  // 不加这个轮播图不显示
+  const app = new Vue({
+    el: '#app'
+  })
+</script>

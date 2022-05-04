@@ -1,0 +1,9 @@
+{
+  "name": "个人介绍",
+  "unique": "me",
+  "description": "可以显示个人介绍和信息",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://github.com/xblog-plugins/plugin-me",
+  "auth": ["router","database","net","tools","widget"]
+}

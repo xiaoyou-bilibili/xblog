@@ -4,6 +4,6 @@
   "description": "可以显示我的个人项目信息",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
-  "auth": ["router","database"]
+  "site": "https://github.com/xblog-plugins/plugin-projects",
+  "auth": ["router","database","widget","tools"]
 }

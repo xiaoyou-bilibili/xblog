@@ -1,0 +1,9 @@
+{
+  "name": "最近评论",
+  "unique": "sideRecentComment",
+  "description": "显示最近的10条评论",
+  "version": "1.0",
+  "author": "小游",
+  "site": "https://github.com/xblog-plugins/plugin-recent-comment",
+  "auth": ["widget","tools","database"]
+}

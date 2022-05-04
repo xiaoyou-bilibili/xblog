@@ -1,0 +1,124 @@
+<style>
+    .user-info .frinum{margin-left:-10px}
+    #bilibili-card li a{color:#4c4c4c}
+    #bilibili-card li a:hover{color:#618eba}
+    .bilibili-card .watch-icon{display:flex;align-items:center;justify-content:center}
+    #bilibili-card{padding:10px;overflow:hidden}
+    #bilibili-card a{text-decoration:none}
+    .bilibili-card .user-auth{width:auto;line-height:20px;display:inline-block;font-size:14px;color:#222;vertical-align:middle;margin-left:-2px;white-space:nowrap}
+    .bilibili-card .auth-icon.personal-auth{background-position:-35px -50px;margin-bottom:3px}
+    .bilibili-card .auth-icon{display:inline-block;width:22px;height:23px;background-image:url({{.server}}/icon/user-auth.png);background-repeat:no-repeat;vertical-align:bottom}
+    .bilibili-card .h-vipType{display:inline-block;height:16px;line-height:16px;border-radius:4px;font-size:12px;color:#fff;padding:0 5px;background-color:#f45a8d;vertical-align:middle;margin-right:5px}
+    .bilibili-card .gender{display:none;width:21px;height:18px;margin-right:5px;vertical-align:middle;background-position:-212px -922px}
+    .bilibili-card .icon{margin-left:9px;display:inline-block;background-image:url({{.server}}/icon/icons.png)}
+    .bilibili-card .male{display:inline-block;background-position:-212px -472px}
+    .bilibili-card .female{display:inline-block;background-position:-211px -404px}
+    .bilibili-card .m-level[lvl="0"]{background-position:-21px -10px}
+    .bilibili-card .m-level[lvl="1"]{background-position:-21px -46px}
+    .bilibili-card .m-level[lvl="2"]{background-position:-21px -82px}
+    .bilibili-card .m-level[lvl="3"]{background-position:-21px -118px}
+    .bilibili-card .m-level[lvl="4"]{background-position:-21px -154px}
+    .bilibili-card .m-level[lvl="5"]{background-position:-21px -190px}
+    .bilibili-card .m-level[lvl="6"]{background-position:-21px -226px}
+    .bilibili-card .m-level{display:inline-block;width:28px;height:16px;margin-right:5px;vertical-align:middle;background-image:url({{.server}}/icon/level.png);background-repeat:no-repeat;background-position:999px 999px}
+    .bilibili-card .up-info .u-face.has-pendant{position:absolute}
+    .bilibili-card .up-info .u-face{float:left;width:48px;height:48px;position:relative}
+    .bilibili-card .up-info .u-face .fac{display:block;width:48px;height:48px;border-radius:50%;overflow:hidden;background-color:#f4f5f7;margin-left:15px}
+    .bilibili-card .up-info .u-face .up-face{background:#f9f9f9}
+    .bilibili-card .up-info .u-face .pendant{position:absolute;overflow:hidden;top:-2px;left:-2px;width:80px;height:80px;z-index:2}
+    .bilibili-card .up-info .u-info{margin-left:80px;margin-top:10px}
+    .bilibili-card .up-info .u-info .name{font-size:14px;color:#00a1d6}
+    .bilibili-card .up-info .u-info .name .username{font-size:14px;color:#212121;font-weight:500;display:inline-block;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:top}
+    .bilibili-card .is-vip{color:#fb7299!important}
+    .bilibili-card .up-info .u-info .desc{font-size:12px;color:#999}
+    .bilibili-card .up-info .btn-panel{clear:both;display:-ms-flexbox;justify-content:center;display:flex;white-space:nowrap;padding:11px}
+    .bilibili-card .up-info .btn-panel .not-follow-charge-btn{width:90px}
+    .bilibili-card .up-info .btn-panel .charge-btn a{color:#fb7299}
+    .bilibili-card .up-info .btn-panel .charge-btn{background:#fff;border:1px solid #fb7299;margin-right:10px;transition:all .3s}
+    .bilibili-card .up-info .btn-panel .not-follow-charge-btn:hover{background:#fb7299}
+    .bilibili-card .up-info .btn-panel .not-follow-charge-btn:hover a{color:#fff}
+    .bilibili-card .up-info .btn-panel .default-btn{box-sizing:border-box;padding:0;line-height:32px;height:32px;border-radius:2px;font-size:14px;display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;cursor:pointer}
+    .bilibili-card .up-info .btn-panel .not-follow{background:#00a1d6;width:156px}
+    .bilibili-card .up-info .btn-panel .not-follow:hover{background:#00b5e5;border-color:#00b5e5}
+    .bilibili-card .up-info .btn-panel .not-follow a{color:#fff}
+    .bilibili-card .up-info .btn-panel .follow-btn{transition:.25s}
+    #bilibili-card{padding:0}
+    #bilibili-card li{padding-bottom:10px;width:33%;text-align:center;float:left;font-size:10px;letter-spacing:1px;list-style:none}
+    .bilibili-card li span{display:block}
+    img[src=""]{opacity: 0;}
+</style>
+<div id="bilibili-card" class="bilibili-card">
+    <div id="v_upinfo" class="up-info report-wrap-module report-scroll-module">
+        <div class="u-face has-pendant">
+            <a href="//space.bilibili.com/{{.uid}}" target="_blank" class="fac">
+                <img src="{{.avatar}}" width="48" height="48" class="up-face" alt="">
+                <img src="{{.hang}}" width="80" height="80" class="pendant" alt="">
+            </a>
+        </div>
+        <div class="u-info">
+            <div class="name">
+                <a href="//space.bilibili.com/{{.uid}}" target="_blank" class="username is-vip">{{ .nickname }}</a>
+                {{if eq .sex "男"}}
+                <span class="icon gender male" ></span>
+                {{end}}
+                {{if eq .sex "女"}}
+                <span class="icon gender female"></span>
+                {{end}}
+                <a href="//www.bilibili.com/html/help.html#k"
+                        target="_blank"
+                        lvl="{{.level}}"
+                        class="h-level m-level"
+                ></a>
+                {{if eq .isVip 1}}
+                <a href="//account.bilibili.com/account/big" target="_blank" class="h-vipType">年度大会员</a>
+                {{end}}
+            </div>
+            <div title="{{.sign}}" class="desc">
+                {{.sign}}
+            </div>
+            <div class="row user-auth">
+              <span title="{{.auth }}" class="auth-description">
+                  <a href="//space.bilibili.com/{{.uid}}" title="个人认证" target="_blank" class="auth-icon personal-auth" ></a>
+                {{.auth }}
+              </span>
+            </div>
+        </div>
+        <div class="btn-panel">
+            <div class="default-btn charge-btn not-follow-charge-btn">
+                <a href="https://message.bilibili.com/#/whisper/mid{{.uid}}" target="_blank">
+                    <span class="watch-icon">
+                        <svg width="15px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" class="svg-inline--fa fa-envelope fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+                         私信
+                    </span>
+                </a>
+            </div>
+            <div class="default-btn follow-btn b-gz not-follow">
+                <a href="https://space.bilibili.com/{{.uid}}" target="_blank">
+                    <span class="watch-icon">
+                        <svg width="15px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+                         关注
+                        <span>{{.fans}}</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <ul class="user-info">
+        <li class="frinum">
+            <a href="https://space.bilibili.com/{{.uid}}/fans/follow" target="_blank">
+                {{.watch}}
+                <span>关注数</span>
+            </a>
+        </li>
+        <li class="vitnum">
+            <a href="https://space.bilibili.com/{{.uid}}/fans/fans" target="_blank">
+                {{.fans}}
+                <span>粉丝数</span>
+            </a>
+        </li>
+        <li class="ptnum">
+            {{.view}}
+            <span>播放数</span>
+        </li>
+    </ul>
+</div>

@@ -3,17 +3,23 @@ const widget =xBlog.widget
 const tools =xBlog.tools
 
 // 定义字段
-const keyNotice = "tool_notice"
+const keyProgram = "mini_program_img"
+const keyApp = "app_img"
+const keyH5 = "h5_img"
 
 // 添加卡片
-widget.addSide(false,"其他客户端","index.html",function () {
-    const functions = [
-        { title: "日记",icon: "far fa-calendar-alt",link: "/more/diary",color: "#5FB878" },
-        { title: "赞助博主",icon: "fas fa-donate",link: "/more/diary",color: "#FFB800" },
-        { title: "友人帐",icon: "fas fa-child",link: "/more/diary",color: "#01AAED" },
-        { title: "我的追番",icon: "fas fa-ghost",link: "/more/diary",color: "#f25d8e" },
-    ]
+widget.addSide("其他客户端","index.html",function () {
+    // 返回客户端数据
     return {
-        functions
+        program: tools.getSetting(keyProgram),
+        app: tools.getSetting(keyApp),
+        h5: tools.getSetting(keyH5),
     }
 },true)
+// 添加设置信息
+widget.addSetting("更多客户端设置",1,[
+    {title:"小程序二维码",type: "upload",key: keyProgram},
+    {title:"安卓二维码",type: "upload",key: keyApp},
+    {title:"H5二维码",type: "upload",key: keyH5},
+])
+

@@ -4,6 +4,6 @@
   "description": "显示其他客户端的下载二维码",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
+  "site": "https://github.com/xblog-plugins/plugin-other",
   "auth": ["widget","tools"]
 }

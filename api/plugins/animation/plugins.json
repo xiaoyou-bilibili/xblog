@@ -4,6 +4,6 @@
   "description": "可以显示可以自己的B站追番信息",
   "version": "1.0",
   "author": "小游",
-  "site": "https://xiaoyou66.com/",
+  "site": "https://github.com/xblog-plugins/plugin-animation",
   "auth": ["router","tools","net","widget"]
 }
