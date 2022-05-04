@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env SERVER=http://192.168.1.13/ SHOP=http://192.168.1.13:2334 nuxt",
-    "build": "cross-env SERVER=serverAddr LOCAL=localAddr WS=wsAddr SHOP=https://xblog.api.xiaoyou66.com nuxt build",
+    "dev": "cross-env SERVER=http://192.168.1.13/ nuxt",
+    "build": "cross-env SERVER=serverAddr LOCAL=localAddr WS=wsAddr nuxt build",
     "start": "nuxt start",
     "generate": "cross-env SERVER=/ nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
