@@ -111,9 +111,7 @@ EOF;
                     <span class="emotion-toggle-on">嘿嘿嘿 ヾ(≧∇≦*)ゝ</span>
                 </p>
                 <div class="emotion-box no-select">
-                    <?php
-                        $smiles = tools_get_smile();
-                    ?>
+                    <?php $smiles = tools_get_smile(); ?>
                     <table class="motion-switcher-table">
                         <tbody>
                         <tr>

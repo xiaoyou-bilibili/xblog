@@ -19,9 +19,15 @@
             </p>
             <p>
                 &copy; 2021 <?php setting_index_site_name(); ?>
-                <a href="http://www.beian.miit.gov.cn" target="_blank"> <?php setting_index_bei_an(); ?></a>
+                <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank"> <?php setting_index_bei_an(); ?></a>
                 <a href="/sitemap" target="_blank">SITEMAP</a>
             </p>
+            <?php if (get_setting_index_gov_bei_an()!=""):  ?>
+            <p>
+                <img src="<?php echo setting_template().'/static/image/beian.png' ?>">
+                <a href="http://www.beian.gov.cn/portal/index.do" target="_blank"> <?php setting_index_gov_bei_an(); ?></a>
+            </p>
+            <?php endif; ?>
         </div>
         <div class="footer-device"></div>
         <?php

@@ -13,6 +13,12 @@
                         <br>Theme
                         <a href="" target="_blank" rel="nofollow">Kratos</a> Power by <a href="https://xblog.xiaoyou66.com/" target="_blank" rel="nofollow">XBlog</a>
                         <br><a href="https://beian.miit.gov.cn/" rel="external nofollow" target="_blank"><i class="govimg"></i><?php setting_index_bei_an(); ?></a>
+                        <?php if (get_setting_index_gov_bei_an()!=""):  ?>
+                            <span>
+                                <img src="<?php echo setting_template().'/static/images/beian.png' ?>">
+                                <a href="http://www.beian.gov.cn/portal/index.do" target="_blank"> <?php setting_index_gov_bei_an(); ?></a>
+                            </span>
+                         <?php endif; ?>
                         <br><a href="/sitemap" target="_blank">Sitemap</a>
                     </p>
                 </div>

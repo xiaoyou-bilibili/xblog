@@ -6,7 +6,7 @@
      */
     // 博客系统主页配置
     // 注意这个两个地址不能一样，要不然替换会出错。。。
-    const SERVER = "http://192.168.123.119";
+    const SERVER = "http://192.168.1.13";
     const API = "http://127.0.0.1:2333";
     // 引入启动文件
     require __DIR__ . '/xblog/App.php';

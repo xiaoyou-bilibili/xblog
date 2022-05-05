@@ -1,4 +1,4 @@
-<?php get_header('post');
+<?php get_header('access');
 echo "<div id='access-content'>";
 xy_access();
 echo "</div>";

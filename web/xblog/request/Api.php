@@ -19,11 +19,6 @@ class Api {
     const TOOLS = self::API_VERSION."tools";
     const USER = self::API_VERSION."user";
 
-//    const XBlogServer = "http://127.0.0.1:2334/api/v2";
-    const XBlogServer = "https://xblog.api.xiaoyou66.com/api/v2";
-    const GET_THEMES_SHOP = self::XBlogServer."/blog/get/themes";
-    const GET_THEMES_UPDATE = self::XBlogServer."/blog/get/themes/update";
-
     const GET_SETTING_INDEX = self::SETTING."/site/index";
     const GET_SETTING_PLUGIN = self::SETTING."/site/plugins/";
     const GET_SETTING_LOGIN = self::SETTING."/site/login";
@@ -282,24 +277,5 @@ class Api {
             throw new Exception("没有token信息");
         }
     }
-
-    /**
-     * 获取所有的主题信息
-     * @return array
-     * @throws Exception
-     */
-    function getThemeShops(): array
-    {
-        return $this->client->Get(self::GET_THEMES_SHOP);
-    }
-
-    /**
-     * 获取主题更新信息
-     * @throws Exception
-     */
-    function getThemesUpdate($param){
-        return $this->client->Get(self::GET_THEMES_UPDATE,$param);
-    }
-
 
 }

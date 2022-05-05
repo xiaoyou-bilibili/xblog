@@ -12,6 +12,12 @@
                     <a href="https://beian.miit.gov.cn/">
                         <?php setting_index_bei_an(); ?>
                     </a>
+                    <?php if (get_setting_index_gov_bei_an()!=""):  ?>
+                        <span>
+                            <img src="<?php echo setting_template().'/static/image/beian.png' ?>">
+                            <a href="http://www.beian.gov.cn/portal/index.do" target="_blank"> <?php setting_index_gov_bei_an(); ?></a>
+                        </span>
+                    <?php endif; ?>
                 </span>
             </p>
         </div>

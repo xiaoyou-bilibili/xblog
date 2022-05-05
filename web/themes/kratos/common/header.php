@@ -30,7 +30,7 @@
         lib_script_layui();
         lib_script_xiao_you();
     ?>
-    <link rel="stylesheet" href="<?php echo setting_template()."/static/css/kratos.min.css"?>" type="text/css" media="all">
+    <link rel="stylesheet" href="<?php echo setting_template()."/static/css/kratos.min.css"?>" type="text/css">
     <style>#offcanvas-menu{background:#3a3f51}.affix{top:61px}.kratos-cover.kratos-cover_2{background-image:url(<?php setting_index_navigation_background(); ?>)}@media(max-width:768px){.kratos-cover.kratos-cover_2{background-image:url(<?php setting_index_background(); ?>)}}@media(max-width:768px){#kratos-header-section{display:none}nav#offcanvas-menu{top:0;padding-top:190px;}.kratos-cover .desc.desc2{margin-top:-55px}}@media(min-width:768px){.pagination>li>a{background-color:rgba(255,255,255,.9)}.comment-list .children li{background-color:rgba(255,253,232,.7)!important}.theme-bg{background-image:url(<?php setting_index_background(); ?>);background-size:cover;background-attachment:fixed}}    </style>
     <link rel="stylesheet" type="text/css" href="<?php echo setting_template()."/static/css/prism.css"?>">
     <link rel="stylesheet" type="text/css" href="<?php echo setting_template()."/static/css/animate.min.css"?>">

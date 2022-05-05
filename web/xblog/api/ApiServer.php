@@ -43,9 +43,6 @@ class ApiServer
             case self::PUT.self::base."themes":
                 $this->updateTheme();
                 break;
-            case self::GET.self::base."themes/shop":
-                $this->getThemesShop();
-                break;
             case self::GET.self::base."themes/download":
                 $this->downloadThemes();
                 break;
@@ -146,27 +143,6 @@ class ApiServer
                 array_push($param,$item["name"]);
             }
         }
-        // 获取更新信息
-        try {
-            $infos = Api::newAPi()->getThemesUpdate(["themes"=>join(",",$param)]);
-            // 遍历一下更新信息
-            $info = [];
-            foreach ($infos["data"] as $item){
-                if (isset($item["version"]) && isset($item["name"]) && isset($item["download_url"])){
-                    $info[$item["name"]] = [
-                        "version"=> $item["version"],
-                        "download_url"=> $item["download_url"]
-                    ];
-                }
-            }
-            // 设置更新信息
-            for ($i =0;$i<count($data);$i++) {
-                if (isset($data[$i]["name"]) && isset($info[$data[$i]["name"]])) {
-                    $data[$i]["new_version"] = $info[$data[$i]["name"]]["version"];
-                    $data[$i]["download_url"] = $info[$data[$i]["name"]]["download_url"];
-                }
-            }
-        }catch (Exception $e){}
         // 返回所有主题信息
         $this->returnJson($data);
     }
@@ -227,31 +203,6 @@ class ApiServer
         }catch (Exception $e){
             $this->returnError(404,"系统错误");
         }
-    }
-
-    /**
-     * 获取主题市场信息
-     */
-    private function getThemesShop(){
-        $data = [];
-        try {
-            $data = Api::newAPi()->getThemeShops();
-            $data = $data["data"];
-            // 获取所有的主题信息
-            $settings = $this->getAllThemesVersion();
-            // 遍历设置
-            for ($i=0;$i<count($data);$i++) {
-                // 获取所有主题的版本信息
-                if (isset($settings[$data[$i]["name"]])) {
-                    // 版本一样重置URL
-                    if ($settings[$data[$i]["name"]] == $data[$i]["version"]){
-                        $data[$i]["download_url"] = "";
-                    }
-                }
-            }
-        } catch (Exception $e){}
-        // 返回所有主题信息
-        $this->returnJson($data);
     }
 
     /**

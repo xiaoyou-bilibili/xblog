@@ -1,6 +1,6 @@
 <?php get_header('friend'); ?>
 <div class="main-part">
-    <div id="content" class="site-content" style="background-color: rgba(255, 255, 255, 0.8);">
+    <div id="content" class="site-content" style="background-color: rgba(255, 255, 255, 0.8);width: 100%">
         <span class="linkss-title">友人帐</span>
         <article class="post-item post-26 page type-page status-publish hentry">
             <div class="links">

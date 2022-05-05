@@ -52,7 +52,7 @@
         </div>
     </div>
     <?php if($show):?>
-    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-3 col-0 div-box-content right-box">
+    <div class="col-xl-2 col-lg-3 col-md-10 col-sm-3 col-0 div-box-content right-box">
         <div id="sidebar-right" class="giligili-left sidebar">
             <?php xy_right_side(); ?>
         </div>
