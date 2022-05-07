@@ -68,7 +68,7 @@ chengshaung|汪|Flechazo|大力粗奇迹|　　|
 夜，微凉|老白|叶初凉（叶子）|　|youwolf|
 2130|[陈先生](https://www.talkchen.com/)|a'ゞ额|🍓|小游说我很乖|
 骆驼强子。|灵感不来|[vacikey](http://macaixiang.com.cn)|niiKyu|朱先森|
-eya46|御坂夏浔||泽泽酱|彬᭄ꦿ|
+[eya46](https://www.eya46.com)|御坂夏浔||泽泽酱|彬᭄ꦿ|
 一颗苹果|夕綺Yuuki | kira.cool|托鲁斯|憨|深蓝|
 main|User2333|海绵摆摆|bestone|going|
 自已|闯|乾小默|TechDirito|mm|
@@ -99,7 +99,7 @@ uaneua|JustASaltFish|亦可赛艇～|花小兰ch|风屿|
 浅阳Overdose|赤瞳| |慵懒|这只知识也不进脑子呀|
 时分|[码上夏雨](https://github.com/SakurajimaMaii)|hail|Dianc|禾言|
 盐罐子里d魚|阿瑶为你痛哭|　|青樽|子柠|
-cubes|12skoko|ღ是小盛呀ღ| [Mzkito](https://mzkito.gitee.io/)
+cubes|12skoko|ღ是小盛呀ღ| [Mzkito](https://mzkito.gitee.io/)| [小贵](https://xgcode.cn)
 
 
 ## 效果演示
