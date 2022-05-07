@@ -49,7 +49,7 @@
 
 |1|2|3|4|5|
 |----|----|----|----|----|
-|往事|Starry sky|Sykes|远山海|可可以乐|hezimua|
+|往事|Starry sky|Sykes|远山海|[Amd](hhtps://mieux.top)|hezimua|
 曖暉(Aihui)|wl|桜火|若时间无垠|墨白|
 ZAPHAKIEL|Kevin|wing|回忆|一世倾辰|
 麓|方寸|Crash.|痴嗔贪～|Squirreldada|
@@ -79,7 +79,7 @@ Eternally|长夜#老头子|滑小稽|未来|長安|
 恐咖兵糖 ftls.xyz|Russell|[被遗忘的灬天空](https://bywdtk.cn)|小游|QQ大冰块子|
 石上花，爲子開💤|莫得机会|迷路麒麟|eowyn|月~悠荡|
 violette|A远赴倒悬山A|你好神奇呦！|96孔板@02号|Manticore7016|
-今天是一个礼物|夏凉|睦月凌|Blueflame|howgo|
+今天是一个礼物|╰°朕的江山づ|睦月凌|Blueflame|howgo|
 源远流长|源初熙|22娘|蒟蒻|汤药|
 神话|focus|A|活着就是为了樱岛麻衣|學仙丶七秒|
 薛定谔的猫和麦克斯韦的妖|[阿肥肥宅](https://blog.syjhxy.ltd)|[CCCCox](https://blog.ccccox.com)|墨锋|别样|
