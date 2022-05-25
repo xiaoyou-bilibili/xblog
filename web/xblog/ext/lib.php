@@ -26,7 +26,7 @@ function lib_script_highlight(){
 
 
 function lib_script_element(){
-    echo '<script src="//cdn.bootcdn.net/ajax/libs/element-ui/2.15.8/index.js"></script>';
+    echo '<script src="//unpkg.com/element-ui@2.15.1/lib/index.js"></script>';
 }
 function lib_script_layui(){
     echo '<script src="//cdn.bootcdn.net/ajax/libs/layui/2.6.5/layui.min.js"></script>';
@@ -41,7 +41,7 @@ function lib_script_fancybox(){
 
 
 function lib_css_element(){
-    echo '<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/element-ui/2.15.8/theme-chalk/index.min.css">';
+    echo '<link rel="stylesheet" href="//unpkg.com/element-ui@2.15.1/lib/theme-chalk/index.css">';
 }
 function lib_css_font_awesome(){
     echo '<link href="//cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.css" rel="stylesheet">';
