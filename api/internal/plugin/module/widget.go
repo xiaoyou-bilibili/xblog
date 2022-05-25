@@ -34,7 +34,7 @@ var globalCSS = map[string]string{
 var globalScript = map[string]string{
 	"xiaoyou": "/static/js/xiaoyou.js",
 	"element": "https://unpkg.com/element-ui/lib/index.js",
-	"vue":     "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
+	"vue":     "/static/js/vue.js",
 	"jquery":  "https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js",
 }
 

@@ -9,7 +9,7 @@
 // https://www.jsdelivr.com/?docs=gh
 
 function lib_script_vue(){
-    echo '<script src="//cdn.bootcdn.net/ajax/libs/vue/3.2.33/vue.cjs.js"></script>';
+    echo '<script src="/static/js/vue.js"></script>';
 }
 function lib_script_jquery(){
     echo '<script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.1.1/jquery.min.js?ver=2.1.4"></script>';
